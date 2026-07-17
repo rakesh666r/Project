@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background-color: #e9e9e9;
+        height: 100vh;
+        display: flex;
+      }
+
+      .container {
+        height: 20vh;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px dashed rgb(202, 202, 202);
+      }
+
+      .topNavbar {
+        display: flex;
+        height: 30%;
+        background-color: #ffe7ea;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      .tnLeft {
+        display: flex;
+        margin-left: 40px;
+        gap: 25px;
+        color: #2b2b2b;
+      }
+
+      .tnLeft p {
+        padding-right: 20px;
+        border-right: 2px dashed #333;
+      }
+
+      .tnLeft p:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      .tnRight {
+        display: flex;
+        margin-right: 40px;
+        gap: 25px;
+        color: #2b2b2b;
+      }
+
+      .tnRight > div {
+        display: flex;
+        gap: 10px;
+      }
+
+      .tnRightImage {
+        justify-content: center;
+        height: 20px;
+      }
+
+      .bottomNavbar {
+        display: flex;
+        height: 30%;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+      }
+
+      .btRight {
+        display: flex;
+        margin-right: 40px;
+        margin-top: 30px;
+        gap: 32px;
+        text-align: center;
+        color: rgb(102, 102, 102);
+      }
+
+      .search {
+        position: relative;
+      }
+
+      .search input {
+        height: 60px;
+        width: 600px;
+        margin-top: 30px;
+        border-radius: 8px;
+        border: 0.5px solid var(--neutrals-grey-500666666, #666);
+        background: var(--Modal-Modal-Background, #f7f9f9);
+        padding: 15px 15px 15px 45px;
+      }
+
+      .search span {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        color: #666;
+      }
+
+      .logo {
+        margin-top: 30px;
+        height: 200px;
+        width: 300px;
+      }
+
+      button {
+        width: 100%;
+        padding: 18px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 6px;
+        border: 1px solid rgb(238, 32, 78);
+        background: rgb(238, 32, 78);
+        cursor: pointer;
+      }
+
+      button a {
+        text-decoration: none;
+        color: white;
+      }
+
+      button:hover {
+        opacity: 0.9;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topNavbar">
+        <div class="tnLeft">
+          <p>FREE Delivery</p>
+          <p>7 Days Easy Return</p>
+          <p>Best Prices</p>
+        </div>
+        <div class="tnRight">
+          <div>
+            <img
+              src="../Snapdeal/images/article_shortcut_24dp_2B2B2B_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+              class="tnRightImage"
+            />
+            <p>Our Blog</p>
+          </div>
+          <div>
+            <img
+              src="../Snapdeal/images/help_24dp_2B2B2B_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+              class="tnRightImage"
+            />
+            <p>Help Center</p>
+          </div>
+          <div>
+            <img
+              src="../Snapdeal/images/add_business_24dp_2B2B2B_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+              class="tnRightImage"
+            />
+            <p>Sell On Snapdeal</p>
+          </div>
+        </div>
+      </div>
+        <div class="bottomNavbar">
+        <div class="btLeft">
+          <img
+            src="../Snapdeal/images/Snapdeal-Logo.wine.svg"
+            alt="logo"
+            class="logo"
+          />
+        </div>
+        <div class="search">
+          <span class="material-symbols-outlined"> search </span>
+          <input type="text" placeholder="Search for Brands & Products" />
+        </div>
+        <div class="btRight">
+          <div>
+            <img
+              src="./images/account_circle_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+            <p>Login</p>
+          </div>
+          <div>
+            <img
+              src="./images/remove_shopping_cart_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+            />
+            <p>MyCart</p>
+          </div>
+          <button><a href="#">Download App </a></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

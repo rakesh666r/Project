@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Manrope, sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: block;
+        margin: 8px;
+      }
+
+      .categories {
+        display: flex;
+        justify-content: space-around;
+        background: #fff;
+        width: 100%;
+      }
+
+      .catElement {
+        display: flex;
+        color: rgb(51, 51, 51);
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%;
+        text-align: center;
+        gap: 4px;
+        align-items: center;
+        cursor: pointer;
+      }
+      .catImages {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6.4px;
+        border: 0.8px rgb(170, 170, 170);
+        background: rgb(255, 255, 255);
+        cursor: pointer;
+      }
+      .catElement:hover {
+        text-decoration: underline;
+        color: rgb(238, 32, 78);
+      }
+      .catImages:hover {
+        border: 1px solid rgb(238, 32, 78);
+        border-radius: 6px;
+      }
+
+      .image1 {
+        width: 100%;
+        height: 400px;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+      .image2 {
+        width: 100%;
+        height: auto;
+        border-radius: 24px;
+        border: 1px solid rgb(38, 50, 56);
+        display: block;
+        cursor: pointer;
+      }
+      .deal {
+        color: #263238;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 900;
+        line-height: 125.5%;
+        margin: 40px 0px 40px 0px;
+      }
+      .dImgContainer {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        margin: 0px 0px 32px;
+        width: 100%;
+        justify-content: center;
+      }
+      .arrowIMG {
+        height: 40px;
+      }
+      .dImages {
+        border-radius: 8px;
+        background: 50% center / cover no-repeat lightgray;
+        width: 150px;
+        cursor: pointer;
+      }
+      .dImages:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 8px 0px;
+      }
+      .image3 {
+        width: 100%;
+        height: auto;
+        border-radius: 24px;
+        border: 1px solid rgb(38, 50, 56);
+        cursor: pointer;
+      }
+      .new {
+        color: #263238;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 900;
+        line-height: 125.5%;
+        margin: 40px 0px 40px 0px;
+      }
+      .nImgContainer {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        margin: 0px 0px 32px;
+        width: 100%;
+        justify-content: center;
+      }
+      .nImages {
+        border-radius: 8px;
+        background: 50% center / cover no-repeat lightgray;
+        width: 150px;
+        cursor: pointer;
+      }
+      .nImages:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 8px 0px;
+      }
+      .image4 {
+        width: 100%;
+        height: auto;
+        border-radius: 24px;
+        border: 1px solid rgb(38, 50, 56);
+        display: block;
+        cursor: pointer;
+      }
+      .explore {
+        color: #263238;
+        text-align: center;
+        font-size: 40px;
+        font-weight: 900;
+        line-height: 125.5%;
+        margin: 40px 0px 40px 0px;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 257px);
+        gap: 40px 14.47px;
+        justify-content: center;
+        width: 100%;
+      }
+      .productsImg {
+        width: 257px;
+        height: 340px;
+        cursor: pointer;
+      }
+      .productsImg:hover {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 14px 0px;
+      }
+      .price {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+      }
+      .beforePrice {
+        color: rgb(153, 153, 153);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: line-through;
+      }
+      .offer {
+        color: rgb(198, 149, 50);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+      .ratings {
+        display: flex;
+        width: 257px;
+        align-items: center;
+        gap: 6.668px;
+        color: rgb(43, 43, 43);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%;
+        letter-spacing: -0.36px;
+      }
+      .ratingsNo {
+        color: rgb(102, 102, 102);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: -0.16px;
+      }
+      .star {
+        color: #fdbb00;
+        height: 20px;
+      }
+
+      .productDiscription {
+        display: flex;
+        gap: 10px;
+      }
+
+      Button {
+        display: flex;
+        color: white;
+        width: 367px;
+        height: 52px;
+        font-size: 20px;
+        padding: 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 8px;
+        background: rgb(238, 32, 78);
+        margin-top: 60px;
+        margin-bottom: 20px;
+        margin-left: 520px;
+        border: 1px solid rgb(238, 32, 78);
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="categories">
+      <div class="catElement">
+        <img
+          src="./images/mensnavigationwebhome-92990.jpeg"
+          alt=""
+          class="catImages"
+        />
+        <p>Men's Fashion</p>
+      </div>
+      <div class="catElement">
+        <img
+          src="./images/WoMen_sitenavne-d9da9.jpeg"
+          alt=""
+          class="catImages"
+        />
+        <p>Women's Fashion</p>
+      </div>
+      <div class="catElement">
+        <img
+          src="./images/homesiteiconne-d6c37.jpeg"
+          alt=""
+          class="catImages"
+        />
+        <p>Home & Kitchen</p>
+      </div>
+      <div class="catElement">
+        <img src="./images/kidshomeico-c52fa.jpeg" alt="" class="catImages" />
+        <p>Kid's Fashion</p>
+      </div>
+      <div class="catElement">
+        <img
+          src="./images/Beauty_Site_homene-162a5.jpeg"
+          alt=""
+          class="catImages"
+        />
+        <p>Beauty & Health</p>
+      </div>
+      <div class="catElement">
+        <img src="./images/Automotive1-56b92.jpg" alt="" class="catImages" />
+        <p>Automotives</p>
+      </div>
+      <div class="catElement">
+        <img
+          src="./images/MobileAccessories1-32874.jpg"
+          alt=""
+          class="catImages"
+        />
+        <p>Mobile Accessories</p>
+      </div>
+      <div class="catElement">
+        <img src="./images/elctronic1-cbb06.jpg" alt="" class="catImages" />
+        <p>Electronics</p>
+      </div>
+      <div class="catElement">
+        <img
+          src="./images/sportsandfitnes1-b8667.jpg"
+          alt=""
+          class="catImages"
+        />
+        <p>Sports & Fitness</p>
+      </div>
+      <div class="catElement">
+        <img src="./images/computer11-f7d7d.jpg" alt="" class="catImages" />
+        <p>Computer & Gaming</p>
+      </div>
+      <div class="catElement">
+        <img src="./images/book22-0de0f.jpg" alt="" class="catImages" />
+        <p>Books</p>
+      </div>
+      <div class="catElement">
+        <img src="./images/hobby11-29566.jpg" alt="" class="catImages" />
+        <p>Hobbies</p>
+      </div>
+    </div>
+    <div>
+      <img
+        src="./images/CasualShirts_WebBanner25thFeb26.jpg"
+        alt=""
+        class="image1"
+      />
+    </div>
+    <div>
+      <img
+        src="./images/freedeliverystripwebupdated.jpg"
+        alt=""
+        class="image2"
+      />
+    </div>
+    <div class="deal">Deal Of The Day</div>
+    <div class="dImgContainer">
+      <img
+        src="./images/left-arrow-previous-svgrepo-com.svg"
+        alt=""
+        class="arrowIMG"
+      />
+      <img
+        src="./images/TravelAccessories_hpdod16thjuly26.jpg"
+        alt=""
+        class="dImages"
+      />
+      <img
+        src="./images/KoreanEarring_hpdod16thjuly26.jpg"
+        alt=""
+        class="dImages"
+      />
+      <img
+        src="./images/Kitchenware_hpdod16thjuly26.jpg"
+        alt=""
+        class="dImages"
+      />
+      <img
+        src="./images/ElegantSarees_hpdod16thjuly26.jpg"
+        alt=""
+        class="dImages"
+      />
+      <img
+        src="./images/BoysClothing_hpdod16thjuly26.jpg"
+        alt=""
+        class="dImages"
+      />
+      <img
+        src="./images/BoysCoords_hpdod16thjuly26.jpg"
+        alt=""
+        class="dImages"
+      />
+      <img
+        src="./images/PrintedBedsheets_hpdod16thjuly26.jpg"
+        alt=""
+        class="dImages"
+      />
+      <img
+        src="./images/right-arrow-next-svgrepo-com.svg"
+        alt=""
+        class="arrowIMG"
+      />
+    </div>
+    <div>
+      <img src="./images/campusshoeswebpagebanner.jpg" alt="" class="image3" />
+    </div>
+    <div>
+      <div class="new">New Arrivals</div>
+      <div class="nImgContainer">
+        <img
+          src="./images/left-arrow-previous-svgrepo-com.svg"
+          alt=""
+          class="arrowIMG"
+        />
+        <img
+          src="./images/BoysShirts_NewInn26thMarch26.jpg"
+          alt=""
+          class="nImages"
+        />
+        <img
+          src="./images/ShirtsWomen_NewInn26thMarch26.jpg"
+          alt=""
+          class="nImages"
+        />
+        <img
+          src="./images/Showpieces_NewInn26thMarch26.jpg"
+          alt=""
+          class="nImages"
+        />
+        <img
+          src="./images/SmartShirts_NewInn26thMarch26.jpg"
+          alt=""
+          class="nImages"
+        />
+        <img
+          src="./images/SalwarSuits_NewInn26thMarch26.jpg"
+          alt=""
+          class="nImages"
+        />
+        <img
+          src="./images/Boxers_NewInn26thMarch26.jpg"
+          alt=""
+          class="nImages"
+        />
+        <img
+          src="./images/WomenTopsTunics_NewInn26thMarch26.jpg"
+          alt=""
+          class="nImages"
+        />
+        <img
+          src="./images/right-arrow-next-svgrepo-com.svg"
+          alt=""
+          class="arrowIMG"
+        />
+      </div>
+    </div>
+    <div>
+      <img
+        src="./images/appdownloadbannerhomeweb_4.jpg"
+        alt=""
+        class="image4"
+      />
+    </div>
+    <div class="explore">Explore More On snapdeal</div>
+    <div class="products">
+      <div>
+        <img
+          src="./images/EarPods-Pro-2nd-with-Deep-SDL896879986-1-7a9db.png"
+          alt=""
+          class="productsImg"
+        />
+        <p>EarPods Pro 2nd with Deep Bass..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹357</h6>
+          <h6 class="beforePrice">₹999</h6>
+          <h6 class="offer">72% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.9/5 <span class="ratingsNo">(743)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Bhavyta-Assorted-Rubber-Square-Floor-SDL327123629-1-43791.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Bhavyta Assorted Rubber Square..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹329</h6>
+          <h6 class="beforePrice">₹999</h6>
+          <h6 class="offer">67% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>5/5 <span class="ratingsNo">(1)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/wellcure-Mixed-Nuts-500-g-SDL796341548-1-b2369.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>wellcure Mixed Nuts 500 g</p>
+        <div class="productDiscription">
+          <h6 class="price">₹276</h6>
+          <h6 class="beforePrice">₹899</h6>
+          <h6 class="offer">60% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>2.7/5 <span class="ratingsNo">(165)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Nexra-Creation-Cotton-Blend-Regular-SDL957107285-1-e5134.jpeg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Nexra Creation Cotton Blend..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹295</h6>
+          <h6 class="beforePrice">₹799</h6>
+          <h6 class="offer">63% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.9/5 <span class="ratingsNo">(2584)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/SNDArt-Engineered-Wood-Multicolor-Piggy-SDL043751751-1-3ff1a.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>SNDArt Engineered Wood..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹134</h6>
+          <h6 class="beforePrice">₹599</h6>
+          <h6 class="offer">78% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>4/5 <span class="ratingsNo">(196)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Deslizar-White-Blended-Men-s-SDL431535377-1-3cd17.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Deslizar White Blended Men's..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹308</h6>
+          <h6 class="beforePrice">₹1199</h6>
+          <h6 class="offer">74% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.9/5 <span class="ratingsNo">(397)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Tailors-Sabyasachi-Boat-Neck-Blouse-SDL174074059-1-dc0bf.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Tailors Sabyasachi Boat Neck..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹276</h6>
+          <h6 class="beforePrice">₹999</h6>
+          <h6 class="offer">72% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.9/5 <span class="ratingsNo">(743)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Lieo-Trend-Multicolor-10-Polyester-SDL971781466-1-f9909.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Lieo Trend Multicolor 10 Polyeste..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹421</h6>
+          <h6 class="beforePrice">₹1100</h6>
+          <h6 class="offer">62% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>4/5 <span class="ratingsNo">(650)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Life-Like-M10-SPORTS-TWS-SDL630082214-1-2d505.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Life like m10 sports...</p>
+        <div class="productDiscription">
+          <h6 class="price">₹276</h6>
+          <h6 class="beforePrice">₹999</h6>
+          <h6 class="offer">72% off</h6>
+        </div>
+
+        <h6 class="ratings">
+          <span class="star">★</span>3.9/5 <span class="ratingsNo">(743)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Amor-Benison-PU-Brown-Casual-SDL462050958-1-6eb1f.jpeg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Amor Benison PU Brown Casual</p>
+        <div class="productDiscription">
+          <h6>₹177</h6>
+          <h6 class="beforePrice">590</h6>
+          <h6 class="offer">70% off</h6>
+        </div>
+
+        <h6 class="ratings">
+          <span class="star">★</span>4/5 <span class="ratingsNo">(2022)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Loopa - Black Leather Men's</p>
+        <h6>₹167</h6>
+        <h6 class="beforePrice">₹1099</h6>
+        <h6 class="offer">85% off</h6>
+        <h6 class="ratings">
+          <span class="star">★</span>4.1/5 <span class="ratingsNo">(2894)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Life-Like-A10-PRO-In-SDL299395560-1-33041.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Life like A10 Pro in...</p>
+        <div class="productDiscription">
+          <h6 class="price">₹276</h6>
+          <h6 class="beforePrice">₹999</h6>
+          <h6 class="offer">72% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.9/5 <span class="ratingsNo">(43)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/VCANEE-Black-Cotton-Blend-Regular-SDL290940683-1-57e4a.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>VCANEE Black Cotton Blend..</p>
+        <div class="productDiscription">
+          <h6>₹276</h6>
+          <h6 class="beforePrice">₹999</h6>
+          <h6 class="offer">72% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.9/5 <span class="ratingsNo">(743)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Life-Like-Bluetooth-Neckband-With-SDL624442076-1-3c2f0.JPG"
+          alt=""
+          class="productsImg"
+        />
+        <p>Life Like Bluetooth Neckband With..</p>
+        <div class="productDiscription">
+          <h6>₹436</h6>
+          <h6 class="beforePrice">₹2499</h6>
+          <h6 class="offer">83% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>4/5 <span class="ratingsNo">(2071)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/U7-Tws-Headphone-30-hours-SDL890265990-1-8599d.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>U7 Tws Headphone, 30 hours of..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹370</h6>
+          <h6 class="beforePrice">₹1999</h6>
+          <h6 class="offer">81% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>4.1/5 <span class="ratingsNo">(322)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Saleh-Silicone-Shower-Bath-Belt-SDL405036270-1-0c211.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>Silicone Body Scrubber Belt Dou..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹128</h6>
+          <h6 class="beforePrice">₹499</h6>
+          <h6 class="offer">74% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>4/5 <span class="ratingsNo">(25687)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/DailyHerbs-Fig-Anjeer-250-g-SDL761041825-1-4df91.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>DailyHerbs Dried Anjeer Figs Jar..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹197</h6>
+          <h6 class="beforePrice">₹400</h6>
+          <h6 class="offer">51% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.6/5 <span class="ratingsNo">(1544)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/RAGE-GAZE-Brown-PU-Men-SDL512015509-1-fb556.png"
+          alt=""
+          class="productsImg"
+        />
+        <p>RAGE GAZE - Brown PU Men's..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹133</h6>
+          <h6 class="beforePrice">₹999</h6>
+          <h6 class="offer">87% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>4.1/5 <span class="ratingsNo">(6470)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/FreshoCartz-Mixed-Nuts-500-g-SDL270575964-1-e402d.jpg"
+          alt=""
+          class="productsImg"
+        />
+        <p>FreshoCartz Mixed Nuts 500 g</p>
+        <div class="productDiscription">
+          <h6 class="price">₹398</h6>
+          <h6 class="beforePrice">₹1999</h6>
+          <h6 class="offer">80% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.5/5 <span class="ratingsNo">(565)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/Sonavi-Skin-Whitening-GHARSOAP-Soap-SDL892284317-1-7589b.png"
+          alt=""
+          class="productsImg"
+        />
+        <p>Sonavi Skin Whitening..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹161</h6>
+          <h6 class="beforePrice">₹1497</h6>
+          <h6 class="offer">89% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.6/5 <span class="ratingsNo">(1151)</span>
+        </h6>
+      </div>
+      <div>
+        <img
+          src="./images/VI-PRIME-Mixed-Nuts-200-SDL301917854-1-21fea.jpeg"
+          alt=""
+          class="productsImg"
+        />
+        <p>VI PRIME Healthy Mixed Nuts wit..</p>
+        <div class="productDiscription">
+          <h6 class="price">₹198</h6>
+          <h6 class="beforePrice">₹499</h6>
+          <h6 class="offer">60% off</h6>
+        </div>
+        <h6 class="ratings">
+          <span class="star">★</span>3.7/5 <span class="ratingsNo">(30)</span>
+        </h6>
+      </div>
+    </div>
+    <button>View More</button>
+  </body>
+</html>
