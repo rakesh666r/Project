@@ -1,21 +1,432 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>single product</title>
-</head>
-<body>
-    <div>
-        <span>Home</span>
-        <img src="./images/32213.png" alt="">
-        <span>Mobiles & Tablets</span>
-        <img src="./images/32213.png" alt="">
-        <span>Mobiles Accessories</span>
-        <img src="./images/32213.png" alt="">
-        <span> Power Banks</span>
-        <img src="./images/32213.png" alt="">
-        <span>AMYTEL 10000 -mAh 5V/1A Li-Ion Power Bank</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Product Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        background: #f7f7f7;
+      }
+
+      .navbar {
+        width: 95%;
+        max-width: 1380px;
+        margin: 15px auto 10px auto;
+        display: flex;
+        gap: 6px;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .lastElement {
+        color: #777;
+      }
+
+      .Container {
+        width: 95%;
+        max-width: 1380px;
+        margin: 0 auto;
+        background: white;
+        margin-bottom: 40px;
+      }
+
+      .productPage {
+        display: flex;
+        background: white;
+      }
+
+      .leftSection {
+        width: 42%;
+        min-height: 750px;
+        border-right: 1px solid #e5e5e5;
+        padding: 35px 20px;
+        position: relative;
+        display: flex;
+        background: white;
+      }
+
+      .leftImage {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .leftImage img {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #f4f2f2;
+        padding: 4px;
+        cursor: pointer;
+      }
+      .leftImage img:hover {
+        border: 1px solid black;
+      }
+
+      .mainImage {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .mainImage img {
+        width: 430px;
+        height: 430px;
+        object-fit: contain;
+      }
+
+      .zoomText {
+        position: absolute;
+        bottom: 330px;
+        left: 45%;
+        transform: translateX(-50%);
+        color: #999;
+        font-size: 14px;
+        
+      }
+
+      .rightSection {
+        width: 58%;
+        background: #fff;
+        min-height: 800px;
+      }
+
+      .rightSection h1 {
+        font-size: 24px;
+        font-weight: 400;
+        color: #333;
+        line-height: 36px;
+      }
+
+      .rating {
+        margin-top: 15px;
+        color: rgb(255, 213, 0);
+        font-size: 14px;
+      }
+
+      .rating span {
+        margin-left: 10px;
+        color: #1e88e5;
+      }
+
+      hr {
+        margin: 15px 0;
+        border: none;
+        border-top: 1px solid #eee;
+      }
+
+      .mrp {
+        color: #999;
+        font-size: 14px;
+      }
+
+      .priceBox {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .price {
+        color: #e40046;
+        font-size: 32px;
+      }
+
+      .offer {
+        border: 1px solid #ddd;
+        padding: 4px 8px;
+        font-size: 14px;
+        color: #777;
+      }
+
+      .colorSection {
+        margin-top: 150px;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+      }
+
+      .colorTitle {
+        margin-bottom: 15px;
+      }
+
+      .colors {
+        display: flex;
+        gap: 12px;
+      }
+
+      .colorCard {
+        width: 95px;
+        height: 115px;
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 8px;
+      }
+
+      .colorCard img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+      }
+
+      .colorCard span {
+        display: block;
+        margin-top: 8px;
+        color: #777;
+      }
+
+      .active {
+        border: 2px solid #00a8ff;
+      }
+
+      .buttons {
+        margin-top: 35px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .buyBtn {
+        width: 180px;
+        height: 55px;
+        background: #e40046;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .cartBtn {
+        width: 180px;
+        height: 55px;
+        background: #333;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .delivery {
+        margin-top: 35px;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+      }
+
+      .deliveryRow {
+        display: flex;
+        gap: 60px;
+      }
+
+      .deliveryTitle {
+        color: #444;
+      }
+
+      .deliveryInfo {
+        color: #666;
+      }
+
+      .deliveryInfo ul {
+        padding-left: 20px;
+        margin-top: 10px;
+        line-height: 30px;
+      }
+
+      .change {
+        color: #1e88e5;
+        margin-left: 8px;
+        cursor: pointer;
+      }
+
+      .free {
+        color: green;
+      }
+
+      .specSection {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 40px;
+        border-top: 1px solid #e5e5e5;
+        background: white;
+        margin-bottom: 40px;
+      }
+
+      .specColumn {
+        width: 30%;
+      }
+
+      .specColumn ul {
+        list-style: disc;
+        line-height: 35px;
+        color: #666;
+      }
+
+      .blue {
+        color: #1e88e5;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar-->
+
+    <div class="navbar">
+      <span>Home</span>
+      <span>&gt;</span>
+
+      <span>Mobiles &amp; Tablets</span>
+      <span>&gt;</span>
+
+      <span>Mobiles Accessories</span>
+      <span>&gt;</span>
+
+      <span>Power Banks</span>
+      <span>&gt;</span>
+      <span class="lastElement">AMYTEL 10000 -mAh 5V/1A Li-Ion Power Bank</span>
     </div>
-</body>
+
+    <div class="Container">
+      <div class="productPage">
+        <!-- Left Side -->
+
+        <div class="leftSection">
+          <div class="leftImage">
+            <img
+              src="./images/AMYTEL-10000-mAh-5V-1A-SDL419692507-1-4d7a5(1).jpg"
+            />
+            <img
+              src="./images/AMYTEL-10000-mAh-5V-1A-SDL419692507-2-d60e9.jpg"
+            />
+          </div>
+
+          <div class="mainImage">
+            <img
+              src="./images/AMYTEL-10000-mAh-5V-1A-SDL419692507-1-4d7a5(1).jpg"
+            />
+          </div>
+
+          <div class="zoomText">
+            <img
+              src="./images/search_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
+              alt=""
+              style="height: 15px; width: 15px; margin-bottom: -2px;"
+            />
+            Hover to zoom
+          </div>
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="rightSection">
+          <h1>AMYTEL 10000-mAh 5V/1A Li-Ion Power Bank</h1>
+
+          <div class="rating">
+            ★★★★☆
+            <span style="color: #999;">(3.6)</span>
+            <span>427 Ratings</span>
+            <span>20 Reviews</span>
+            <span>Have a question?</span>
+          </div>
+
+          <hr />
+
+          <p class="mrp">MRP <del>Rs.2999</del> (Inclusive of all taxes)</p>
+
+          <div class="priceBox">
+            <span class="price">Rs.379</span>
+            <span class="offer">87% OFF</span>
+          </div>
+
+          <div class="colorSection">
+            <p class="colorTitle">Color</p>
+
+            <div class="colors">
+              <div class="colorCard active">
+                <img
+                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL419692507-1-4d7a5(1).jpg"
+                />
+                <span>Black</span>
+              </div>
+
+              <div class="colorCard">
+                <img
+                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL422592280-1-95ac4.jpg"
+                />
+                <span>Blue</span>
+              </div>
+
+              <div class="colorCard">
+                <img
+                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL424236760-1-0ae4c.jpg"
+                />
+                <span>Pink</span>
+              </div>
+
+              <div class="colorCard">
+                <img
+                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL458234405-1-b4c67.jpg"
+                />
+                <span>White</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button class="buyBtn">BUY NOW</button>
+            <button class="cartBtn">ADD TO CART</button>
+          </div>
+
+          <div class="delivery">
+            <div class="deliveryRow">
+              <span class="deliveryTitle">Delivery</span>
+
+              <div class="deliveryInfo">
+                <p>
+                  Item is available at 421204.
+                  <span class="change">Change</span>
+                </p>
+
+                <ul>
+                  <li>
+                    Delivery in 7-9 days
+                    <span class="free">Free</span>
+                  </li>
+
+                  <li>Cash on Delivery also available for this location</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Specification Section -->
+
+          <div class="specSection">
+            <div class="specColumn">
+              <ul>
+                <li>AMYTEL</li>
+                <li>No of Output Ports: 2</li>
+              </ul>
+            </div>
+
+            <div class="specColumn">
+              <ul>
+                <li>Battery Type: Li-Ion</li>
+                <li>Output Power: 5V/1A</li>
+              </ul>
+            </div>
+
+            <div class="specColumn">
+              <ul>
+                <li>mAh (Capacity): 10000</li>
+                <li class="blue">View all item details</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
