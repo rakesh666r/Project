@@ -88,42 +88,56 @@
         transform: translateX(-50%);
         color: #999;
         font-size: 14px;
-        
       }
 
       .rightSection {
         width: 58%;
-        background: #fff;
+        background: white;
         min-height: 800px;
       }
 
       .rightSection h1 {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 400;
-        color: #333;
-        line-height: 36px;
+        color: #333333;
+        line-height: 27px;
+        margin-top: 40px;
+        margin-left: 30px;
       }
 
       .rating {
         margin-top: 15px;
         color: rgb(255, 213, 0);
         font-size: 14px;
+        margin-left: 30px;
       }
 
       .rating span {
         margin-left: 10px;
         color: #1e88e5;
+        cursor: pointer;
+      }
+
+      .effect {
+        cursor: pointer;
+      }
+      .effect:hover {
+        text-decoration: underline;
       }
 
       hr {
         margin: 15px 0;
         border: none;
         border-top: 1px solid #eee;
+        margin-left: 25px;
+        margin-right: 25px;
       }
 
       .mrp {
-        color: #999;
-        font-size: 14px;
+        color: #bbbbbb;
+        font-size: 13px;
+        line-height: 15px;
+        margin-left: 25px;
       }
 
       .priceBox {
@@ -131,46 +145,57 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        margin-left: 25px;
       }
 
       .price {
-        color: #e40046;
-        font-size: 32px;
+        color: #ff2341;
+        font-size: 23px;
       }
 
       .offer {
-        border: 1px solid #ddd;
-        padding: 4px 8px;
-        font-size: 14px;
-        color: #777;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        padding: 2px 6px;
+        font-size: 12px;
+        color: #999;
       }
 
       .colorSection {
         margin-top: 150px;
-        border-top: 1px solid #eee;
         padding-top: 25px;
+        padding-left: 35px;
+        display: flex;
       }
 
       .colorTitle {
-        margin-bottom: 15px;
+        height: 13px;
+        width: 92.63px;
+        font-size: 16px;
+        color: #5a5a59;
+        margin-top: 10px;
       }
 
       .colors {
+        width: 400px;
         display: flex;
         gap: 12px;
+        padding: 0px 8px;
+        font-size: 16px;
       }
 
       .colorCard {
-        width: 95px;
-        height: 115px;
+        width: 80px;
+        height: 95px;
         border: 1px solid #ddd;
         text-align: center;
         padding: 8px;
+        border-radius: 4px;
       }
 
       .colorCard img {
-        width: 60px;
-        height: 60px;
+        width: 66px;
+        height: 81px;
         object-fit: contain;
       }
 
@@ -185,34 +210,47 @@
       }
 
       .buttons {
-        margin-top: 35px;
-        display: flex;
-        gap: 15px;
+        margin-top: 55px;
+        height: 50px;
+        width: 608px;
+        display: block;
+        margin-left: 130px;
       }
 
       .buyBtn {
-        width: 180px;
-        height: 55px;
+        width: 152px;
+        height: 50px;
         background: #e40046;
         color: white;
         border: none;
+        border-radius: 3px;
         font-size: 16px;
         cursor: pointer;
       }
 
+      .buyBtn:hover {
+        opacity: 0.9;
+      }
+
       .cartBtn {
-        width: 180px;
-        height: 55px;
+        width: 152px;
+        height: 50px;
         background: #333;
         color: white;
         border: none;
+        border-radius: 3px;
         font-size: 16px;
         cursor: pointer;
+        margin-left: 15px;
+      }
+
+      .cartBtn:hover {
+        opacity: 0.9;
       }
 
       .delivery {
         margin-top: 35px;
-        border-top: 1px solid #eee;
+        background: #f7f7f7;
         padding-top: 25px;
       }
 
@@ -226,7 +264,8 @@
       }
 
       .deliveryInfo {
-        color: #666;
+        color: #999999;
+        font-size: 14px;
       }
 
       .deliveryInfo ul {
@@ -251,7 +290,6 @@
         padding: 25px 40px;
         border-top: 1px solid #e5e5e5;
         background: white;
-        margin-bottom: 40px;
       }
 
       .specColumn {
@@ -259,9 +297,9 @@
       }
 
       .specColumn ul {
-        list-style: disc;
         line-height: 35px;
-        color: #666;
+        color: #666666;
+        font-size: 14px;
       }
 
       .blue {
@@ -312,7 +350,7 @@
             <img
               src="./images/search_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
               alt=""
-              style="height: 15px; width: 15px; margin-bottom: -2px;"
+              style="height: 15px; width: 15px; margin-bottom: -2px"
             />
             Hover to zoom
           </div>
@@ -325,9 +363,11 @@
 
           <div class="rating">
             ★★★★☆
-            <span style="color: #999;">(3.6)</span>
+            <span style="color: #999">(3.6)</span>
             <span>427 Ratings</span>
-            <span>20 Reviews</span>
+            <span style="color: #eee">|</span>
+            <span class="effect">20 Reviews</span>
+            <span style="color: #eee">|</span>
             <span>Have a question?</span>
           </div>
 
@@ -339,64 +379,69 @@
             <span class="price">Rs.379</span>
             <span class="offer">87% OFF</span>
           </div>
+          <div style="background: #f7f7f7">
+            <div class="colorSection">
+              <div class="colorTitle">Color</div>
+              <div class="colors">
+                <div class="colorCard active">
+                  <img
+                    src="./images/AMYTEL-10000-mAh-5V-1A-SDL419692507-1-4d7a5(1).jpg"
+                  />
+                  <span>Black</span>
+                </div>
 
-          <div class="colorSection">
-            <p class="colorTitle">Color</p>
+                <div class="colorCard">
+                  <img
+                    src="./images/AMYTEL-10000-mAh-5V-1A-SDL422592280-1-95ac4.jpg"
+                  />
+                  <span>Blue</span>
+                </div>
 
-            <div class="colors">
-              <div class="colorCard active">
-                <img
-                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL419692507-1-4d7a5(1).jpg"
-                />
-                <span>Black</span>
-              </div>
+                <div class="colorCard">
+                  <img
+                    src="./images/AMYTEL-10000-mAh-5V-1A-SDL424236760-1-0ae4c.jpg"
+                  />
+                  <span>Pink</span>
+                </div>
 
-              <div class="colorCard">
-                <img
-                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL422592280-1-95ac4.jpg"
-                />
-                <span>Blue</span>
-              </div>
-
-              <div class="colorCard">
-                <img
-                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL424236760-1-0ae4c.jpg"
-                />
-                <span>Pink</span>
-              </div>
-
-              <div class="colorCard">
-                <img
-                  src="./images/AMYTEL-10000-mAh-5V-1A-SDL458234405-1-b4c67.jpg"
-                />
-                <span>White</span>
+                <div class="colorCard">
+                  <img
+                    src="./images/AMYTEL-10000-mAh-5V-1A-SDL458234405-1-b4c67.jpg"
+                  />
+                  <span>White</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="buttons">
-            <button class="buyBtn">BUY NOW</button>
-            <button class="cartBtn">ADD TO CART</button>
-          </div>
+            <div class="buttons">
+              <button class="buyBtn">BUY NOW</button>
+              <button class="cartBtn">ADD TO CART</button>
+            </div>
 
-          <div class="delivery">
-            <div class="deliveryRow">
-              <span class="deliveryTitle">Delivery</span>
+            <div class="delivery">
+              <div class="deliveryRow">
+                <span class="deliveryTitle">Delivery</span>
 
-              <div class="deliveryInfo">
-                <p>
-                  Item is available at 421204.
-                  <span class="change">Change</span>
-                </p>
+                <div class="deliveryInfo">
+                  <p>
+                    Item is available at
+                    <span style="color: #606060">421204.</span>
+                    <span class="change">Change</span>
+                  </p>
 
-                <ul>
-                  <li>
-                    Delivery in 7-9 days
-                    <span class="free">Free</span>
-                  </li>
+                  <ul>
+                    <li>
+                      <span style="color: #606060">Delivery in 7-9 days</span>
+                      <span class="free">Free</span>
+                    </li>
 
-                  <li>Cash on Delivery also available for this location</li>
-                </ul>
+                    <li>
+                      <span style="color: #606060"
+                        >Cash on Delivery also available for this location</span
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -421,7 +466,7 @@
             <div class="specColumn">
               <ul>
                 <li>mAh (Capacity): 10000</li>
-                <li class="blue">View all item details</li>
+                <p class="blue">View all item details</p>
               </ul>
             </div>
           </div>
