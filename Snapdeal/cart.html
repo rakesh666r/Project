@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .container {
+        height: 703px;
+        width: 80%;
+        margin: auto;
+        font-family: font-regular;
+        color: #212121;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .upperCNT {
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        padding: 23px 20px 18px 30px;
+        line-height: 32px;
+      }
+
+      .upperCNT h3 {
+        line-height: 34px;
+        font-family: "font-regular";
+        font-weight: normal;
+        font-size: 18px;
+        color: #5a5a59;
+      }
+
+      .upperCNT span {
+        font-size: 14px;
+        color: #999999;
+        font-family: "font-regular";
+        display: inline !important;
+      }
+
+      .upperCNT img {
+        height: 24px;
+        width: 24.5px;
+      }
+
+      .middleCNT {
+        display: flex;
+        justify-content: space-around;
+        height: 47px;
+        width: 100%;
+        line-height: 47px;
+        padding: 0 0 5px 0;
+        font-size: 14px;
+        background: #f2eeee63;
+        margin-right: 18px;
+        box-sizing: border-box;
+        color: #999999;
+      }
+
+      .middleCNT span {
+        font-size: 14px;
+        font-weight: normal;
+        color: #e40046;
+      }
+
+      .middleCNT img {
+        height: 14px;
+        width: 14px;
+      }
+
+      .downCNT {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 6px 0 0;
+        font-size: 12px;
+        color: #b2b2b2;
+        line-height: 16px;
+        margin: 25px 0;
+        font-family: "font-regular";
+        box-sizing: border-box;
+        min-height: 100px;
+      }
+
+      .productDesc {
+        height: 69px;
+        width: 225px;
+        margin-left: -30px;
+      }
+
+      .productDesc h4 {
+        font-size: 14px;
+        color: #666;
+        font-family: "font-regular";
+        cursor: pointer;
+      }
+
+      .productDesc h4:hover {
+        text-decoration: underline;
+      }
+
+      .quantity {
+        font-size: 14px;
+        width: 60px;
+        height: 34px;
+        border: 1px solid;
+        border-radius: 4.5px;
+        border-color: #bbbbbb;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 10px;
+      }
+
+      .quantity img {
+        height: 15px;
+        width: 15px;
+        margin-left: 10px;
+      }
+
+      .bottomCNT {
+        display: flex;
+        justify-content: space-around;
+        min-height: 129px;
+        padding: 25px 0;
+        font-size: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        background-color: #222;
+        color: #bbbbbb;
+      }
+
+      button {
+        border-radius: 3px;
+        display: inline-block;
+        height: 35px;
+        line-height: 36px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 13px;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.2s ease-out 0s;
+        font-weight: 500;
+        overflow: hidden;
+        position: relative;
+        background-color: #e40046;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="upperCNT">
+        <h3>Shopping Cart <span>(1 Item)</span></h3>
+        <img
+          src="./images/close_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
+      <div class="middleCNT">
+        <span style="color: #999999">Item Details</span>
+        <span style="margin-left: 270px; margin-right: 20px; color: #999999"
+          >Price</span
+        >
+        <span style="color: #999999;">Quantity</span>
+        <p>
+          Showing Availability at <span>421204</span>
+          <img
+            src="./images/edit_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+        </p>
+        <p>Subtotal</p>
+      </div>
+      <div class="downCNT">
+        <img
+          style="height: 80px; width: 80px; margin-left: -25px"
+          src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
+          alt=""
+        />
+        <div class="productDesc">
+          <h4>
+            Loopa - Black Leather Men's <br />
+            Formal Belt ( Pack of 1 )
+          </h4>
+          <p style="margin-top: 10px; font-size: 12px">
+            <span>Size: Free Size</span>
+            <span>|</span>
+            <span>Color: Black</span>
+          </p>
+        </div>
+        <span style="color: #666">Rs. 167</span>
+        <div class="quantity">
+          1
+          <img
+            src="./images/keyboard_arrow_down_24dp_9E9E9E_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+        </div>
+        <p style="color: #666">
+          Standard Delivery By 28 Jul - 30 Jul
+          <span style="color: #60bf79">FREE</span>
+        </p>
+        <span style="color: #666">Rs. 167</span>
+      </div>
+      <span style="color: #666; font-size: 14px; margin-left: 160px">x</span>
+      <span style="color: #666; font-size: 12px; margin-left: 4px">REMOVE</span>
+    </div>
+    <div class="bottomCNT">
+      <div>
+        <div
+          style="
+            color: #dddddd;
+            font-size: 13px;
+            line-height: 20px;
+            font-size: 13px;
+            margin-bottom: 15px;
+          "
+        >
+          Delivery and payment options can be selected later
+        </div>
+        <div>
+          <img
+            style="height: 14px; width: 14px"
+            src="./images/shield_24dp_9E9E9E_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+          <span> Safe and Secure Payments</span>
+        </div>
+        <div style="margin-top: 6px">
+          <img
+            style="height: 14px; width: 14px"
+            src="./images/assured_workload_24dp_9E9E9E_FILL0_wght400_GRAD0_opsz24.svg"
+            alt=""
+          />
+          <span>100% Payment Protection, Easy Returns Policy</span>
+        </div>
+      </div>
+      <div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            line-height: 22px;
+            width: 256px;
+          "
+        >
+          <span>Sub Total:</span>
+          <span style="color: #ffffff">Rs. 167</span>
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            line-height: 22px;
+            width: 256px;
+          "
+        >
+          <span>Delivery Charges:</span>
+          <span style="color: #60bf79">FREE</span>
+        </div>
+      </div>
+      <div
+        style="
+          width: 240px;
+          height: 46px;
+          padding: 5px 30px;
+          background: #e40046;
+          border-radius: 4px;
+        "
+      >
+        <button>PROCEED TO PAY RS. 167</button>
+      </div>
+    </div>
+  </body>
+</html>
