@@ -16,118 +16,157 @@
         background: #f7f7f7;
       }
 
-      .container {
-        border: 1px solid red;
+      .wrapper {
         width: 780px;
-        height: 660px;
-        margin: 90px auto;
+        margin: 50px auto;
+      }
+
+      .navbarCNT {
+        width: 100%;
+        height: 72px;
+        background: #e40046;
+        color: white;
+        display: flex;
+        padding: 0px 20px;
+        display: flex;
+        align-items: center;
       }
 
       .navbar {
         display: flex;
         justify-content: space-between;
-        background: #e40046;
-        color: #fff;
         align-items: center;
-        height: 72px;
+        height: 24px;
+        width: 712px;
       }
 
       .navbar p {
-        font-family: Inter, lato, ubuntu, helvetica, sans-serif !important;
         font-size: 24px;
         line-height: 18px;
         font-weight: 700;
+        font-family: Inter, lato, ubuntu, helvetica, sans-serif !important;
 
+      }
+
+      .container {
+        width: 100%;
+        height: 660px;
+        display: flex;
+        border: 1px solid red;
+      }
+
+      .leftSection {
+        width: 52%;
+        min-height: 585px;
+        border-right: 1px solid #e5e5e5;
+        position: relative;
+        background: white;
+      }
+
+      .rightSection {
+        width: 48%;
+        min-height: 585px;
+        background: white;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="navbar">
-        <p>snapdeal</p>
-        <div>
-          <span>English</span>
-          <img
-            src="./images/keyboard_arrow_down_16dp_FFFFFF_FILL0_wght300_GRAD0_opsz20.svg"
-            alt=""
-          />
-        </div>
-        <img style="background: rgba(255, 255, 255, 0.15);"
-          src="./images/close_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"
-          alt=""
-        />
-      </div>
-      <!-- left side -->
-      <div>
-        <span
-          >Summary
-          <img
-            src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
-            alt=""
-          />
-        </span>
-        <span
-          >Address
-          <img
-            src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
-            alt=""
-          />
-        </span>
-        <span>Payment</span>
-      </div>
-      <div>
-        <div>
-          <div>
+    <div class="wrapper">
+      <div class="navbarCNT">
+        <div class="navbar">
+          <p>snapdeal</p>
+          <div style="display: flex; margin-left: 480px; gap: 12px;">
+            <div>
+              <span>English</span>
+              <img
+                src="./images/keyboard_arrow_down_16dp_FFFFFF_FILL0_wght300_GRAD0_opsz20.svg"
+                alt=""
+              />
+            </div>
             <img
-              src="./images/account_circle_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
+              style="background: rgba(255, 255, 255, 0.15)"
+              src="./images/close_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"
               alt=""
             />
-            <span>Contact Details</span>
           </div>
-          <input type="text" />
-          <div>
-            <input type="text" />
-            <span>Notify me with offers and updates</span>
-          </div>
-        </div>
-        <div>
-          Account
-          <img
-            src="./images/keyboard_arrow_up_16dp_000000_FILL0_wght300_GRAD0_opsz20.svg"
-            alt=""
-          />
-        </div>
-        <div>
-          <span>₹ 167</span>
-          <button>Continue</button>
         </div>
       </div>
-
-      <!-- right side -->
-      <div>
-        <div>
-          <span>Order Summary</span>
-          <img
-            src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
-            alt=""
-          />
+      <div class="container">
+        <!-- left side -->
+        <div class="leftSection">
           <div>
-            <p>Loopa - Black Leather Men's...</p>
-            <p>Qty: 1</p>
+            <span
+              >Summary
+              <img
+                src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
+                alt=""
+              />
+            </span>
+            <span
+              >Address
+              <img
+                src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
+                alt=""
+              />
+            </span>
+            <span>Payment</span>
           </div>
-          <span>₹167</span>
           <div>
-            <div>Price</div>
-            <div>₹167</div>
+            <div>
+              <div>
+                <img
+                  src="./images/account_circle_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt=""
+                />
+                <span>Contact Details</span>
+              </div>
+              <input type="text" />
+              <div>
+                <input type="text" />
+                <span>Notify me with offers and updates</span>
+              </div>
+            </div>
+            <div>
+              Account
+              <img
+                src="./images/keyboard_arrow_up_16dp_000000_FILL0_wght300_GRAD0_opsz20.svg"
+                alt=""
+              />
+            </div>
+            <div>
+              <span>₹ 167</span>
+              <button>Continue</button>
+            </div>
           </div>
         </div>
-        <div>
-          <span>Secured by</span>
-          <img
-            style="height: 26px; width: 26px"
-            src="./images/razorpay-icon.svg"
-            alt=""
-          />
+
+        <!-- right side -->
+        <div class="rightSection">
+          <div>
+            <span>Order Summary</span>
+            <img
+              style="height: 56px; width: 56px"
+              src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
+              alt=""
+            />
+            <div>
+              <p>Loopa - Black Leather Men's...</p>
+              <p>Qty: 1</p>
+            </div>
+            <span>₹167</span>
+            <div>
+              <div>Price</div>
+              <div>₹167</div>
+            </div>
+          </div>
+          <div>
+            <span>Secured by</span>
+            <img
+              style="height: 26px; width: 26px"
+              src="./images/razorpay-icon.svg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>
