@@ -19,6 +19,8 @@
       .wrapper {
         width: 780px;
         margin: 50px auto;
+        border-radius: 8px;
+        overflow: hidden;
       }
 
       .navbarCNT {
@@ -37,7 +39,7 @@
         justify-content: space-between;
         align-items: center;
         height: 24px;
-        width: 712px;
+        width: 780px;
       }
 
       .navbar p {
@@ -45,14 +47,12 @@
         line-height: 18px;
         font-weight: 700;
         font-family: Inter, lato, ubuntu, helvetica, sans-serif !important;
-
       }
 
       .container {
         width: 100%;
         height: 660px;
         display: flex;
-        border: 1px solid red;
       }
 
       .leftSection {
@@ -63,10 +63,137 @@
         background: white;
       }
 
+      .topbar {
+        border-right: 1px solid var(--border-grey-color);
+        box-shadow: 0 7px 9px -5px #171a1e26;
+        height: 56px;
+        justify-content: flex-start;
+        padding: 0px 24px;
+        display: flex;
+        align-items: center;
+      }
+
+      .contactDetailsCNT {
+        min-height: 499px;
+        padding: 8px 0 0;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .contactDetails {
+        padding: 16px 24px;
+        font-size: 14px;
+        font-family: Inter, lato, ubuntu, helvetica, sans-serif !important;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      .phoneBox {
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .phoneBox label {
+        position: absolute;
+        top: -8px;
+        left: 12px;
+        background: white;
+        padding: 0 5px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #e40046;
+        z-index: 1;
+      }
+
+      .inputBox {
+        width: 100%;
+        height: 46px;
+        border: 1px solid #e40046;
+        border-radius: 4px;
+        display: flex;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .countryCode {
+        width: 78px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 12px;
+        border-right: 1px solid #d9d9d9;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .countryCode span {
+        font-size: 10px;
+        color: #666;
+      }
+
+      .inputBox input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 0 14px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .inputBox input::placeholder {
+        color: #999;
+      }
+
+      .checkboxBox {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .checkboxBox input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: #e40046;
+        cursor: pointer;
+      }
+
+      .checkboxBox label {
+        position: static;
+        background: transparent;
+        padding: 0;
+        color: #666;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+      }
+
+      .BTNcontainer {
+        padding: 10px 24px;
+        font-size: 16px;
+        box-shadow: 0 -8px 12px 0 rgba(21, 45, 75, 0.102);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      button {
+        background: #e40046;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 14px 18px;
+        width: 70%;
+        border: 1px;
+        border-radius: 6px;
+      }
+
       .rightSection {
         width: 48%;
         min-height: 585px;
         background: white;
+        color: #171a1e;
+        padding: 20px 24px;
       }
     </style>
   </head>
@@ -75,9 +202,9 @@
       <div class="navbarCNT">
         <div class="navbar">
           <p>snapdeal</p>
-          <div style="display: flex; margin-left: 480px; gap: 12px;">
-            <div>
-              <span>English</span>
+          <div style="display: flex; margin-left: 490px; gap: 12px">
+            <div style="display: flex">
+              <span style="font-size: 16px">English</span>
               <img
                 src="./images/keyboard_arrow_down_16dp_FFFFFF_FILL0_wght300_GRAD0_opsz20.svg"
                 alt=""
@@ -94,58 +221,107 @@
       <div class="container">
         <!-- left side -->
         <div class="leftSection">
-          <div>
+          <div class="topbar">
             <span
+              style="
+                color: #e40046;
+                font-size: 16px;
+                padding: 0px 2px;
+                font-family:
+                  Inter, lato, ubuntu, helvetica, sans-serif !important;
+              "
               >Summary
-              <img
-                src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
-                alt=""
-              />
             </span>
+            <img
+              src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
+              alt=""
+            />
             <span
+              style="
+                font-size: 16px;
+                padding: 0px 2px;
+                font-family:
+                  Inter, lato, ubuntu, helvetica, sans-serif !important;
+              "
               >Address
-              <img
-                src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
-                alt=""
-              />
             </span>
-            <span>Payment</span>
+            <img
+              src="./images/keyboard_double_arrow_right_24dp_666666_FILL0_wght300_GRAD0_opsz40.svg"
+              alt=""
+            />
+            <span
+              style="
+                font-size: 16px;
+                padding: 0px 2px;
+                font-family:
+                  Inter, lato, ubuntu, helvetica, sans-serif !important;
+              "
+              >Payment</span
+            >
           </div>
-          <div>
-            <div>
-              <div>
+          <div class="contactDetailsCNT">
+            <div class="contactDetails">
+              <div style="display: flex; align-items: center">
                 <img
+                  style="
+                    background: rgba(182, 181, 181, 0.183);
+                    border-radius: 50px;
+                  "
                   src="./images/account_circle_24dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
                   alt=""
                 />
-                <span>Contact Details</span>
+                <span style="font-weight: 600; padding: 0px 0px 0px 10px"
+                  >Contact Details</span
+                >
               </div>
-              <input type="text" />
-              <div>
-                <input type="text" />
-                <span>Notify me with offers and updates</span>
+              <div class="phoneBox">
+                <label>Phone Number</label>
+                <div class="inputBox">
+                  <div class="countryCode">
+                    +91
+                    <span>▼</span>
+                  </div>
+                  <input type="text" placeholder="" />
+                </div>
+                <div class="checkboxBox">
+                  <input type="checkbox" id="offers" checked />
+                  <label for="offers">Notify me with offers and updates</label>
+                </div>
               </div>
             </div>
-            <div>
+          </div>
+          <div style="padding: 12px 24px">
+            <div
+              style="
+                font-size: 15px;
+                font-weight: 500;
+                font-family:
+                  Inter, lato, ubuntu, helvetica, sans-serif !important;
+                display: flex;
+                align-items: center;
+              "
+            >
               Account
               <img
                 src="./images/keyboard_arrow_up_16dp_000000_FILL0_wght300_GRAD0_opsz20.svg"
                 alt=""
               />
             </div>
-            <div>
-              <span>₹ 167</span>
-              <button>Continue</button>
-            </div>
+          </div>
+          <div class="BTNcontainer">
+            <span style="font-weight: 600; line-height: 18px; color: #171a1e"
+              >₹ 167</span
+            >
+            <button>Continue</button>
           </div>
         </div>
 
         <!-- right side -->
         <div class="rightSection">
           <div>
-            <span>Order Summary</span>
+            <span style="font-size: 16px;margin-bottom: 32px; margin-top: 0; line-height: 21px; font-weight: 600;">Order Summary</span>
             <img
-              style="height: 56px; width: 56px"
+              style="height: 56px; width: 56px; border: .7px solid #8d97a133; border-radius: 2px;"
               src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
               alt=""
             />
@@ -153,7 +329,7 @@
               <p>Loopa - Black Leather Men's...</p>
               <p>Qty: 1</p>
             </div>
-            <span>₹167</span>
+            <div><p>₹167</p></div>
             <div>
               <div>Price</div>
               <div>₹167</div>
