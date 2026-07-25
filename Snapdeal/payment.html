@@ -175,6 +175,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        cursor: pointer;
       }
 
       button {
@@ -195,6 +196,38 @@
         color: #171a1e;
         padding: 20px 24px;
       }
+
+      .productDESC {
+        display: flex;
+        justify-content: space-around;
+        height: 56px;
+        padding: 0px 10px 0px 0px;
+        font-size: 14px;
+        font-weight: 400;
+        color: #171a1e;
+        font-family: Inter, lato, ubuntu, helvetica, sans-serif !important;
+      }
+
+      hr {
+        border: 1px dashed #d3d2d2a3;
+        margin: 22px 0;
+        opacity: 0.5;
+      }
+
+      .priceCNT {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        font-size: 14px;
+        color: #171a1e;
+      }
+
+      .paymentmethod {
+        height: 431px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
     </style>
   </head>
   <body>
@@ -204,14 +237,14 @@
           <p>snapdeal</p>
           <div style="display: flex; margin-left: 490px; gap: 12px">
             <div style="display: flex">
-              <span style="font-size: 16px">English</span>
+              <span style="font-size: 16px; cursor: pointer;">English</span>
               <img
                 src="./images/keyboard_arrow_down_16dp_FFFFFF_FILL0_wght300_GRAD0_opsz20.svg"
                 alt=""
               />
             </div>
             <img
-              style="background: rgba(255, 255, 255, 0.15)"
+              style="background: rgba(255, 255, 255, 0.15); cursor: pointer;"
               src="./images/close_20dp_FFFFFF_FILL0_wght400_GRAD0_opsz20.svg"
               alt=""
             />
@@ -299,10 +332,11 @@
                   Inter, lato, ubuntu, helvetica, sans-serif !important;
                 display: flex;
                 align-items: center;
+                cursor: pointer;
               "
             >
               Account
-              <img
+              <img style="cursor: pointer;"
                 src="./images/keyboard_arrow_up_16dp_000000_FILL0_wght300_GRAD0_opsz20.svg"
                 alt=""
               />
@@ -319,26 +353,58 @@
         <!-- right side -->
         <div class="rightSection">
           <div>
-            <span style="font-size: 16px;margin-bottom: 32px; margin-top: 0; line-height: 21px; font-weight: 600;">Order Summary</span>
-            <img
-              style="height: 56px; width: 56px; border: .7px solid #8d97a133; border-radius: 2px;"
-              src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
-              alt=""
-            />
-            <div>
-              <p>Loopa - Black Leather Men's...</p>
-              <p>Qty: 1</p>
+            <span
+              style="
+                width: 122px;
+                font-size: 16px;
+
+                margin-bottom: 32px;
+                margin-top: 0;
+                line-height: 21px;
+                font-weight: 600;
+                display: flex;
+                justify-self: center;
+              "
+              >Order Summary</span
+            >
+            <div class="productDESC">
+              <img
+                style="
+                  height: 56px;
+                  width: 56px;
+                  border: 0.7px solid #8d97a133;
+                  border-radius: 2px;
+                "
+                src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
+                alt=""
+              />
+              <div>
+                <p>Loopa - Black Leather Men's...</p>
+                <p style="color: #676a6d; font-weight: 400; margin-top: 5px">
+                  Qty: 1
+                </p>
+              </div>
+              <div><p>₹167</p></div>
             </div>
-            <div><p>₹167</p></div>
-            <div>
+            <hr />
+            <div class="priceCNT">
               <div>Price</div>
               <div>₹167</div>
             </div>
           </div>
-          <div>
-            <span>Secured by</span>
+          <div class="paymentmethod">
+            <span
+              style="
+                font-size: 12px;
+                font-style: italic;
+                font-weight: 400;
+                line-height: 14px;
+                color: #414449;
+              "
+              >Secured by</span
+            >
             <img
-              style="height: 26px; width: 26px"
+              style="height: 17px; width: 110px"
               src="./images/razorpay-icon.svg"
               alt=""
             />
