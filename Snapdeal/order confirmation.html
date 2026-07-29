@@ -14,22 +14,23 @@
       body {
         color: #000000;
         background: #f7f7f7;
-        font-family: "font-regular";
+        font-family: sans-serif;
       }
 
       .wrapper {
-        border: 2px solid red;
+        /* border: 2px solid red; */
         width: 95%;
         height: 798px;
         margin: 10px auto;
-      
       }
 
       .container {
         display: flex;
-        border: 1px solid blue;
+        height: 449px;
+        background: #fff;
+        border-radius: 6px;
       }
-      
+
       .thankyou-text {
         background: url("./images/ot-banner1.png") no-repeat;
         margin-bottom: 24px;
@@ -37,6 +38,86 @@
         background-size: cover;
         padding: 30px 50px 0px;
         border-radius: 4px;
+        border-radius: 6px;
+      }
+
+      .thankyou-text h3 {
+        font-size: 18px;
+        color: #5a5a59;
+        line-height: 43px;
+        margin-top: 24px;
+      }
+
+      .thankyou-text p {
+        font-size: 14px;
+        color: #999999;
+      }
+
+      .leftSection {
+        border-right: solid 1px #e5e5e5;
+        width: 70%;
+      }
+
+      .lsTop {
+        height: 56px;
+        border-bottom: solid 1px #e5e5e5;
+        padding: 20px 20px 4px;
+        font-size: 16px;
+        color: #666;
+        display: flex;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0px 30px 9px;
+        /* padding-right: 0px; */
+      }
+
+      li {
+        margin: 30px 0 16px;
+        padding-bottom: 16px;
+        border-bottom: solid 1px #e5e5e5;
+        display: flex;
+        gap: 40px;
+      }
+
+      .lsBottom {
+        padding: 0 0 30px 30px;
+        margin: 0 8px;
+        display: flex;
+      }
+
+      .bottom {
+        width: 100%;
+        height: 144px;
+        background: #fff;
+        display: flex;
+        margin-top: 25px;
+        border-radius: 6px;
+      }
+
+      button {
+        border-radius: 3px;
+        display: inline-block;
+        height: 35px;
+        width: 260px;
+        line-height: 36px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 13px;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.2s ease-out 0s;
+        font-weight: 500;
+        overflow: hidden;
+        position: relative;
+        background-color: #e40046;
+        margin-top: 30px;
+        margin-left: 40px;
       }
     </style>
   </head>
@@ -50,35 +131,118 @@
       </div>
       <div class="container">
         <div class="leftSection">
-          <div>Total Products: 1</div>
-          <div>Status</div>
-          <p>Price</p>
+          <div class="lsTop">
+            <div
+              style="
+                color: #666;
+                font-size: 14px;
+                margin-top: 2px;
+                width: 58.33333%;
+                float: left;
+              "
+            >
+              Total Products: 1
+            </div>
+            <div
+              style="
+                margin-top: 2px;
+                padding-left: 0px !important;
+                width: 20.83333%;
+              "
+            >
+              Status
+            </div>
+            <div
+              style="
+                margin-top: 2px 0px 0px;
+                padding: 0px 8px;
+                width: 20.83333%;
+              "
+            >
+              <p
+                style="
+                  margin-right: 10px;
+                  text-align: right;
+                  margin-bottom: 15px;
+                "
+              >
+                Price
+              </p>
+            </div>
+          </div>
           <ul>
             <li>
-              <img style="width: 80px; height: 93px;"
+              <img
+                style="width: 80px; height: 93px"
                 src="./images/Loopa-Black-Leather-Men-s-SDL344530276-1-bf880.jpg"
                 alt=""
               />
-              <div>
-                <p>Loopa - Black Leather Men's Formal Belt ( Pack of 1 )</p>
-                <p>Size: Free Size</p>
-                <p>Color: Black</p>
+              <div
+                style="
+                  width: 45.83333%;
+                  padding: 0px 8px;
+                  width: 320px;
+                  height: 170px;
+                "
+              >
+                <p
+                  style="
+                    line-height: 20px;
+                    font-size: 14px;
+                    font: inherit;
+                    color: #666666;
+                    height: 42px;
+                  "
+                >
+                  Loopa - Black Leather Men's Formal Belt ( Pack of 1 )
+                </p>
+                <p style="color: #999; margin: 3px 0px; font-size: 13px">
+                  Size: Free Size
+                </p>
+                <p style="color: #999; margin: 3px 0px; font-size: 13px">
+                  Color: Black
+                </p>
+                <div
+                  style="
+                    font-size: 13px;
+                    color: #999999;
+                    margin-top: 30px;
+                    justify-content: center;
+                    display: flex;
+                    float: left;
+                  "
+                >
+                  <img
+                    style="height: 15px; width: 15px"
+                    src="./images/calendar_month_16dp_7A8383_FILL0_wght400_GRAD0_opsz20.svg"
+                    alt=""
+                  />
+                  <span
+                    style="
+                      margin: -3px 0px 0px 13px;
+                      line-height: 19px;
+                      width: 134.88px;
+                    "
+                    >Expected Delivery:02 Aug 2026 - 04 Aug 2026</span
+                  >
+                </div>
               </div>
-              <div>
-                <img
-                  src="./images/calendar_month_16dp_7A8383_FILL0_wght400_GRAD0_opsz20.svg"
-                  alt=""
-                />
-                <span>Expected Delivery: <br />02 Aug 2026 - 04 Aug 2026</span>
+              <div style="margin-left: 40px">
+                <p style="font-size: 13px; color: #666">Cancelled</p>
               </div>
-              <div>
-                <p>Cancelled</p>
-              </div>
-              <div>
-                <span>Total: Rs. 167</span>
-                <p>
+              <div style="margin-left: 180px;">
+                <span style="font-size: 13px; color: #666">Total: Rs. 167</span>
+                <p
+                  style="
+                    font-size: 13px;
+                    color: #25a8ed !important;
+                    margin-top: 9px;
+                    
+                  "
+                >
                   Order Details
                   <img
+                    style="height: 12px; width: 15px"
                     src="./images/arrow_forward_ios_19dp_25A8ED_FILL0_wght400_GRAD0_opsz20.svg"
                     alt=""
                   />
@@ -86,25 +250,82 @@
               </div>
             </li>
           </ul>
-          <div>
-            <div>
-              <img
-                src="./images/home_16dp_7A8383;_FILL0_wght400_GRAD0_opsz20.svg"
-                alt=""
-              />
-              Shipping Address:
+          <div class="lsBottom">
+            <div style="width: 50.33333%">
+              <div
+                style="
+                  font-size: 15px;
+                  color: #5a5a59;
+                  margin-bottom: 12px;
+                  display: flex;
+                  gap: 10px;
+                "
+              >
+                <img
+                  style="height: 16px; width: 16px"
+                  src="./images/home_16dp_7A8383;_FILL0_wght400_GRAD0_opsz20.svg"
+                  alt=""
+                />
+                Shipping Address:
+              </div>
+              <p
+                style="
+                  line-height: 20px;
+                  margin-left: 26px;
+                  color: #999999;
+                  font-size: 13px;
+                "
+              >
+                near aims hospital,
+              </p>
+              <p
+                style="
+                  line-height: 20px;
+                  margin-left: 26px;
+                  color: #999999;
+                  font-size: 13px;
+                "
+              >
+                Casa Regalia F lakeshore greens, Khoni Dombivili east, Thane -
+                421204, Maharashtra
+              </p>
+              <p
+                style="
+                  line-height: 20px;
+                  margin-left: 26px;
+                  color: #999999;
+                  font-size: 13px;
+                "
+              >
+                rakeshsingh89012@gmail.com
+              </p>
+              <p
+                style="
+                  line-height: 20px;
+                  margin-left: 26px;
+                  color: #999999;
+                  font-size: 13px;
+                "
+              >
+                +91 1234567890
+              </p>
             </div>
-            <p>near aims hospital,</p>
-            <p>
-              Casa Regalia F lakeshore greens, Khoni Dombivili east, Thane -
-              421204, Maharashtra
-            </p>
-            <p>rakeshsingh89012@gmail.com</p>
-            <p>+91 1234567890</p>
-          </div>
-          <div>
-            <span>Payable on Delivery:</span>
-            <span>Rs. 167</span>
+            <div
+              style="
+                width: 290px;
+                height: 24px;
+                display: flex;
+                justify-content: space-between;
+                margin-left: 130px;
+              "
+            >
+              <span style="font-size: 15px; color: #999999"
+                >Payable on Delivery:</span
+              >
+              <span style="padding: 0 8px; font-size: 15px; color: #666666"
+                >Rs. 167</span
+              >
+            </div>
           </div>
         </div>
         <div class="rightSection">
@@ -140,20 +361,37 @@
           </div>
         </div>
       </div>
-      <div>
-        <div>
-          <span
+      <div class="bottom">
+        <div style="width: 70%; border-right: solid 1px #e5e5e5; padding: 30px">
+          <span style="font-size: 14px; color: #5a5a59; margin-bottom: 12px"
             >Wish to return or cancel an item from your order? Don't worry,
             simply visit MY ORDERS</span
           >
-          <p>
+          <p
+            style="
+              width: 90%;
+              font-size: 12px;
+              color: #999999;
+              margin-top: 10px;
+              line-height: 20px;
+            "
+          >
             Refund/Replacement will be issued only once we receive your item
             with all original packing, invoice, MRP sticker and tags. Item
             should be unused, unsoiled and additional accessories (eg. belts,
             buckles, etc.) should be included in the package.
           </p>
         </div>
-        <div>
+        <div
+          style="
+            padding: 30px;
+            padding: 0 30px 20px 30px;
+            margin: 0;
+            font-size: 14px;
+            width: 246px;
+            height: 85px;
+          "
+        >
           <button>My orders</button>
         </div>
       </div>
