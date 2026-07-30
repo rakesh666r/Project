@@ -70,7 +70,6 @@
       ul {
         list-style: none;
         padding: 0px 30px 9px;
-        /* padding-right: 0px; */
       }
 
       li {
@@ -85,6 +84,46 @@
         padding: 0 0 30px 30px;
         margin: 0 8px;
         display: flex;
+      }
+
+      .rightSection {
+        padding: 45px 0 10px 0;
+      }
+
+      .rsContent {
+        padding: 0 30px 20px 30px;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .track {
+        font-size: 13px;
+        line-height: 1.2;
+        color: #999999;
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .cancel {
+        font-size: 13px;
+        line-height: 1.2;
+        color: #999999;
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .return {
+        font-size: 13px;
+        line-height: 1.2;
+        color: #999999;
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
       .bottom {
@@ -230,14 +269,13 @@
               <div style="margin-left: 40px">
                 <p style="font-size: 13px; color: #666">Cancelled</p>
               </div>
-              <div style="margin-left: 180px;">
+              <div style="margin-left: 180px">
                 <span style="font-size: 13px; color: #666">Total: Rs. 167</span>
                 <p
                   style="
                     font-size: 13px;
                     color: #25a8ed !important;
                     margin-top: 9px;
-                    
                   "
                 >
                   Order Details
@@ -329,26 +367,28 @@
           </div>
         </div>
         <div class="rightSection">
-          <div>
-            <span>Easily track & Manage using My orders</span>
-            <div>
-              <div>
+          <div class="rsContent">
+            <span style="font-size: 14px; color: #666"
+              >Easily track & Manage using My orders</span
+            >
+            <div style="margin-top: 20px">
+              <div class="track">
                 <img
-                  src="./images/distance_18dp_7A8383;_FILL0_wght400_GRAD0_opsz20.svg"
+                  src="./images/distance_17dp_B7B7B7_FILL0_wght400_GRAD0_opsz20.svg"
                   alt=""
                 />
                 <span>Track</span>
               </div>
-              <div>
+              <div class="cancel">
                 <img
-                  src="./images/cancel_18dp_7A8383;_FILL0_wght400_GRAD0_opsz20.svg"
+                  src="./images/cancel_17dp_B7B7B7_FILL0_wght400_GRAD0_opsz20.svg"
                   alt=""
                 />
                 <span>Cancel</span>
               </div>
-              <div>
+              <div class="return">
                 <img
-                  src="./images/undo_18dp_7A8383;_FILL0_wght400_GRAD0_opsz20.svg"
+                  src="./images/undo_17dp_B7B7B7_FILL0_wght400_GRAD0_opsz20.svg"
                   alt=""
                 />
                 <span> Return/Replace</span>
@@ -356,7 +396,9 @@
             </div>
             <button>My orders</button>
             <div>
-              <button>Continue Shopping</button>
+              <button style="border-color: #333; background: #333">
+                Continue Shopping
+              </button>
             </div>
           </div>
         </div>
