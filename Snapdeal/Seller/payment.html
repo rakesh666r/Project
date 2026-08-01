@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payments Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          Segoe UI,
+          Arial,
+          sans-serif;
+      }
+      body {
+        background: #f2f2f2;
+        color: #333;
+      }
+      .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 72px;
+        height: 100vh;
+        background: #fff;
+        border-right: 1px solid #e5e5e5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 12px;
+      }
+    
+      .logo {
+        width: 42px;
+        height: 42px;
+        background: #ff2f6d;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+      .sicon {
+        width: 22px;
+        height: 22px;
+        margin: 14px 0;
+        cursor: pointer;
+      }
+
+     
+      .active {
+        width: 42px;
+        height: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .topbar {
+        height: 60px;
+        background: #fff;
+        margin-left: 72px;
+        border-bottom: 1px solid #e5e5e5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+      }
+      .topbar-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 10px;
+        border-right: 1px solid #e5e5e5;
+        cursor: pointer;
+      }
+
+      .nav-item:last-child {
+        border-right: none;
+      }
+
+      .nav-icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .account-icon {
+        border-radius: 50%;
+      }
+
+      .arrow-box {
+        width: 12px;
+        height: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+      }
+
+      .main {
+        margin-left: 72px;
+        padding: 22px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      }
+      .searchRow {
+        padding: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .searchWrap {
+        display: flex;
+        gap: 16px;
+      }
+      .search-container {
+        position: relative;
+        width: 320px;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .search-input {
+        width: 100%;
+        height: 58px;
+        border: 1px solid #d9d9d9;
+        border-radius: 6px;
+        padding-left: 42px;
+        padding-right: 12px;
+        font-size: 14px;
+        outline: none;
+      }
+      .download-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .download-btn {
+        width: 265px;
+        height: 58px;
+        background: #137c24;
+        border: none;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .download-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .download-title {
+        font-size: 14px;
+        font-weight: 600;
+        text-align: left;
+      }
+
+      .download-subtitle {
+        font-size: 10px;
+        margin-top: 2px;
+        opacity: 0.95;
+        text-align: left;
+      }
+
+      .download-file-icon img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .download-arrow img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .download-menu img {
+        width: 25px;
+        height: 25px;
+      }
+      .summary {
+        margin-top: 20px;
+        padding: 18px;
+      }
+      .badge-yellow {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 3px 8px;
+        background: #fff3cd53;
+        color: #f3ce61;
+        border-radius: 40px;
+        font-size: 11px;
+        font-weight: 550;
+        vertical-align: middle;
+      }
+      .summaryBoxes {
+        display: grid;
+        grid-template-columns: 1fr 60px 1fr 60px 1fr;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      .box {
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #e9e9e9;
+      }
+
+      .b1 {
+        background: #f5f8ff;
+      }
+      .b2 {
+        background: #fff7f7;
+      }
+      .eq {
+        height: 25px;
+        width: 25px;
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        align-items: center;
+        justify-content: center;
+        color: #aaa;
+        font-size: 25px;
+        background: #9999991c;
+        border-radius: 50px;
+      }
+      .amount {
+        font-size: 22px;
+        font-weight: 700;
+        margin-top: 10px;
+      }
+      .total-credit-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .total-credit-box {
+        width: 320px;
+        height: 118px;
+        background: #f8fbf8;
+        border: 1px solid #e8e8e8;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .total-credit-content h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 12px;
+      }
+
+      .total-credit-content h1 {
+        font-size: 28px;
+        font-weight: 700;
+        color: #222;
+      }
+
+      .credit-image {
+        width: 75px;
+        height: 145px;
+      }
+
+      .credit-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .panel {
+        padding: 18px;
+      }
+      .monthly-details-row,
+      .payment-btn-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+        margin-bottom: 15px;
+      }
+
+      .monthly-change {
+        color: #d9534f;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .view-details-btn,
+      .payment-btn {
+        color: skyblue;
+        border: 1px solid skyblue;
+        border-radius: 4px;
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .payment-btn-row {
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .card-divider {
+        width: 100%;
+        height: 1px;
+        background: #e5e5e5;
+        margin-bottom: 15px;
+      }
+      .section-info {
+        margin-top: 18px;
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      .section-subtitle {
+        font-size: 12px;
+        color: #888;
+        margin-top: 2px;
+      }
+      .bigamt {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 12px 0;
+        display: inline-block;
+      }
+      .right-actions-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        margin-top: -35px;
+        margin-bottom: 15px;
+      }
+
+      .right-empty-space {
+        flex: 1;
+      }
+
+      .right-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-end;
+      }
+
+      .right-btn {
+        width: 175px;
+        height: 36px;
+        background: white;
+        border: 1px solid skyblue;
+        border-radius: 4px;
+        color: skyblue;
+        font-size: 13px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        cursor: pointer;
+      }
+
+      .btn-svg {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .right-divider {
+        width: 100%;
+        height: 1px;
+        background: #e6e6e6;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      .tags {
+        display: flex;
+        gap: 8px;
+        margin: 15px 0;
+      }
+      .tag {
+        padding: 6px 12px;
+        border: 1px solid #cfd8dc;
+        border-radius: 20px;
+        font-size: 12px;
+        color: #6b7c8a;
+      }
+      .chartArea {
+        background: #fafafa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 10px;
+        height: 340px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .donut {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #74c76d 0deg 320deg,
+          #e54d68 320deg 350deg,
+          #b71c1c 350deg 360deg
+        );
+        position: relative;
+      }
+      .donut:before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        background: #fff;
+        border-radius: 50%;
+      }
+      .center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        font-weight: 700;
+      }
+      .chart-amount {
+        font-size: 18px;
+        font-weight: 700;
+        color: #333;
+      }
+
+      .chart-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #666;
+        margin-top: 6px;
+      }
+
+      .chart-date {
+        font-size: 12px;
+        color: #999;
+        margin-top: 2px;
+      }
+
+      .chart-link {
+        font-size: 12px;
+        font-weight: 600;
+        color: skyblue;
+        margin-top: 6px;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      .help {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        background: #ff1f67;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      }
+      .help-logo {
+        width: 32px;
+        height: 32px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .help-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .help-text {
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        margin-top: 2px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <img
+          style="height: 42px; width: 42px"
+          src="./images/Snapdeal_Logo_new.png"
+          alt=""
+        />
+      </div>
+      <div class="sicon">
+        <img
+          src="./images/dashboard_24dp_999999_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
+      <div class="sicon">
+        <img
+          src="./images/trolley_24dp_999999_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
+      <div class="sicon">
+        <img
+          src="./images/assignment_24dp_999999_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
+      <div class="sicon">
+        <img
+          src="./images/deployed_code_24dp_999999_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
+      <div class="active">
+        <img
+          style="
+            height: 18px;
+            width: 18px;
+            border: 2px solid #999999;
+            border-radius: 6px;
+            height: 22px;
+            width: 22px;
+          "
+          src="./images/currency_rupee_16dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+          alt=""
+        />
+      </div>
+      <div class="sicon">
+        <img
+          style="
+            border: 2px solid #999999;
+            border-radius: 6px;
+            height: 22px;
+            width: 22px;
+            margin-top: 6px;
+          "
+          src="./images/show_chart_16dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+          alt=""
+        />
+      </div>
+      <div class="sicon">
+        <img
+          src="./images/finance_mode_24dp_999999_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
+      <div class="sicon">
+        <img
+          src="./images/warning_24dp_999999_FILL0_wght400_GRAD0_opsz24.svg"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <div class="topbar">
+      <div>
+        <b>Payments</b> <br />
+        <span style="color: #777">Payments/Dashboard</span>
+      </div>
+      <div class="topbar-right">
+        <div class="nav-item">
+          <div class="nav-icon">
+            <img
+              src="./images/notifications_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+              alt=""
+            />
+          </div>
+
+          <span>Notifications</span>
+
+          <div class="arrow-box">
+            <img
+              src="./images/keyboard_arrow_down_16dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <div class="nav-icon">
+            <img
+              src="./images/campaign_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+              alt=""
+            />
+          </div>
+
+          <span>Announcements</span>
+        </div>
+
+        <div class="nav-item">
+          <div class="nav-icon">
+            <img
+              src="./images/help_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+              alt=""
+            />
+          </div>
+
+          <span>Seller Help</span>
+        </div>
+
+        <div class="nav-item">
+          <div class="nav-icon account-icon">
+            <img
+              src="./images/account_circle_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+              alt=""
+            />
+          </div>
+
+          <span>Accounts</span>
+
+          <div class="arrow-box">
+            <img
+              src="./images/keyboard_arrow_down_16dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="card searchRow">
+        <h3>Dashboard</h3>
+        <div class="searchWrap">
+          <div class="search-container">
+            <div class="search-icon">
+              <img
+                src="./images/search_20dp_999999_FILL0_wght400_GRAD0_opsz20.svg"
+                alt="search"
+                width="18"
+              />
+            </div>
+
+            <input
+              type="text"
+              placeholder="Search Order/Sub Order"
+              class="search-input"
+            />
+          </div>
+          <div class="download-section">
+            <button class="download-btn">
+              <div class="download-left">
+                <span class="download-file-icon">
+                  <img
+                    src="./images/description_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+                    alt=""
+                  />
+                </span>
+
+                <div class="download-text">
+                  <div class="download-title">Download</div>
+                  <div class="download-subtitle">
+                    Commission, payment & GST Reports
+                  </div>
+                </div>
+              </div>
+
+              <span class="download-arrow">
+                <img
+                  src="./images/keyboard_arrow_down_30dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt=""
+                />
+              </span>
+            </button>
+
+            <div class="download-menu">
+              <img
+                src="./images/more_vert_30dp_666666_FILL0_wght400_GRAD0_opsz24.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card summary">
+        <h3>
+          Total Payments Credited in Current Financial Year
+          <img
+            src="./images/info_20dp_666666_FILL0_wght400_GRAD0_opsz20.svg"
+            width="15px"
+            style="margin-bottom: -1.5px"
+          />
+          <span class="badge-yellow">FY 2025-26</span>
+        </h3>
+        <div class="summaryBoxes">
+          <div class="box b1">
+            <div>
+              Net Order Amount
+              <img
+                src="./images/info_20dp_666666_FILL0_wght400_GRAD0_opsz20.svg"
+                width="15px"
+                style="margin-bottom: -1.5px"
+              />
+            </div>
+            <div class="amount">₹3,56,52,558.23</div>
+          </div>
+          <div class="eq">−</div>
+          <div class="box b2">
+            <div>
+              Deductions
+              <img
+                src="./images/info_20dp_666666_FILL0_wght400_GRAD0_opsz20.svg"
+                width="15px"
+                style="margin-bottom: -1.5px"
+              />
+            </div>
+            <div class="amount">₹41,76,203.7</div>
+          </div>
+          <div class="eq">=</div>
+          <div class="total-credit-wrapper">
+            <div class="total-credit-box">
+              <div class="total-credit-content">
+                <h4>
+                  Total Amount Credited
+                  <img
+                    src="./images/info_20dp_666666_FILL0_wght400_GRAD0_opsz20.svg"
+                    width="15"
+                    style="margin-bottom: -2px"
+                  />
+                </h4>
+
+                <h1>₹3,14,76,354.53</h1>
+              </div>
+            </div>
+
+            <div class="credit-image">
+              <img
+                src="./images/online-card-payment-concept-easy-260nw-1306465417.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card panel">
+          <h3>
+            Monthly Payments Credited
+            <span class="badge-yellow">July 2025</span>
+          </h3>
+          <div class="bigamt">₹64,31,073.62</div>
+          <div class="monthly-details-row">
+            <div class="monthly-change">
+              -34.14%
+              <span style="color: #888; font-weight: 500">from last month</span>
+            </div>
+
+            <div class="view-details-btn">View Monthly Details</div>
+          </div>
+
+          <div class="card-divider"></div>
+          <div class="section-info">
+            <div class="section-title">Previous Payments</div>
+            <div class="section-subtitle">Breakdown of last 3 payments</div>
+          </div>
+          <div class="tags">
+            <div
+              class="tag"
+              style="color: lightskyblue; border: 1px solid skyblue"
+            >
+              30 Jul 2025
+            </div>
+            <div class="tag">29 Jul 2025</div>
+            <div class="tag">28 Jul 2025</div>
+          </div>
+          <div class="chartArea">
+            <div class="donut">
+              <div class="center">
+                <div class="chart-amount">₹2,84,705.98</div>
+
+                <div class="chart-label">Credited on</div>
+
+                <div class="chart-date">30 Jul 2025</div>
+
+                <div class="chart-link">View Details</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card panel">
+          <h3>Next Two Payments</h3>
+          <div class="bigamt">₹6,79,167.68</div>
+          <div class="right-actions-row">
+            <div class="right-empty-space"></div>
+
+            <div class="right-buttons">
+              <button class="right-btn">View Value of Active Order</button>
+
+              <button class="right-btn">
+                <span>Generate Reports</span>
+
+                <span class="btn-svg">
+                  <img
+                    src="./images/create_new_folder_16dp_87CEEB_FILL0_wght400_GRAD0_opsz20.svg"
+                    alt=""
+                    width="24px"
+                    height="24px"
+                  />
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="right-divider"></div>
+          <div class="section-info">
+            <div class="section-title">Upcoming Payments</div>
+            <div class="section-subtitle">
+              Breakdown of your next 2 payments
+            </div>
+          </div>
+          <div class="tags">
+            <div
+              class="tag"
+              style="color: lightskyblue; border: 1px solid skyblue"
+            >
+              31 Jul 2025
+            </div>
+            <div class="tag">01 Aug 2025</div>
+          </div>
+          <div class="chartArea">
+            <div class="donut">
+              <div class="center">
+                <div class="chart-amount">₹3,17,482.21</div>
+
+                <div class="chart-label">Receivable on</div>
+
+                <div class="chart-date">31 Jul 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="help">
+      <div class="help-logo">
+        <img src="./images/Snapdeal_Logo_new.png" alt="" />
+      </div>
+      <div class="help-text">HELP</div>
+    </div>
+  </body>
+</html>
