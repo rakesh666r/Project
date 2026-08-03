@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profile page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        background: #fff;
+      }
+
+      .container {
+        width: 1280px;
+        margin: 28px auto;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .main {
+        display: flex;
+        gap: 28px;
+        margin-top: 50px;
+      }
+
+      .breadcrumb {
+        padding-bottom: 18px;
+        border-bottom: 1px solid #e8e8e8;
+        font-size: 14px;
+      }
+
+      .crumb {
+        color: #444;
+        cursor: pointer;
+      }
+
+      .slash {
+        color: #bdbdbd;
+        margin: 0 10px;
+      }
+
+      .currentPage {
+        color: #8c8c8c;
+      }
+
+      /* LEFT */
+
+      .sidebar {
+        width: 285px;
+      }
+
+      .sidebar h2 {
+        font-size: 20px;
+        color: #e40046;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+
+      .userSection {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .userIcon {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: #666;
+        flex-shrink: 0;
+      }
+
+      .userName {
+        font-size: 14px;
+        color: #555;
+        font-weight: 600;
+      }
+
+      .userEmail {
+        font-size: 13px;
+        color: #999;
+        margin-top: 2px;
+      }
+
+      .deviceBox {
+        margin-top: 20px;
+        background: #f3f8fd;
+        border: 1px solid #dceaf6;
+        padding: 18px;
+        font-size: 13px;
+        line-height: 21px;
+        color: #666;
+      }
+
+      .deviceBox span {
+        color: #1b87e6;
+        font-weight: 600;
+      }
+
+      .sidebar hr {
+        border: none;
+        border-top: 1px solid #e6e6e6;
+        margin: 24px 0;
+      }
+
+      /* MENU */
+
+      .menuHeading {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .menuIcon {
+        width: 26px;
+        height: 26px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* SVG yaha add karna */
+
+      .menuHeading span {
+        font-size: 13px;
+        font-weight: 600;
+        color: #666;
+      }
+
+      .menuBlock a {
+        display: block;
+        text-decoration: none;
+        color: #4f4f4f;
+        font-size: 15px;
+        font-weight: 600;
+        margin-left: 38px;
+        margin-bottom: 14px;
+      }
+
+      .activeLink {
+        color: #e40046 !important;
+      }
+
+      /* RIGHT */
+
+      .content {
+        flex: 1;
+      }
+
+      .section {
+        margin-bottom: 65px;
+      }
+
+      .section h3 {
+        font-size: 20px;
+        font-weight: 400;
+        color: #111;
+        margin-bottom: 10px;
+      }
+
+      .borderLine {
+        width: 100%;
+        height: 1px;
+        background: #dcdcdc;
+        position: relative;
+      }
+
+      .borderLine::before {
+        content: "";
+        width: 120px;
+        height: 4px;
+        background: #d0d0d0;
+        position: absolute;
+        left: 0;
+        top: -1px;
+      }
+
+      .emptyText {
+        text-align: center;
+        margin-top: 55px;
+        font-size: 18px;
+        font-weight: 400;
+        color: #111;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="breadcrumb">
+        <span class="crumb">Home</span>
+
+        <span class="slash">/</span>
+
+        <span class="crumb">My Account</span>
+
+        <span class="slash">/</span>
+
+        <span class="currentPage">My Cards</span>
+      </div>
+
+      <div class="main">
+        <div class="sidebar">
+          <h2>MY ACCOUNT</h2>
+
+          <div class="userSection">
+            <div class="userIcon">
+              <img
+                src="./images/person_35dp_FFF.svg"
+                style="
+                  align-self: center;
+                  justify-self: center;
+                  display: flex;
+                  margin-top: 5px;
+                "
+              />
+            </div>
+
+            <div>
+              <p class="userName">Rakesh Singh</p>
+              <p class="userEmail">rakeshsingh89012@gmail.c...</p>
+            </div>
+          </div>
+
+          <div class="deviceBox">
+            You might be logged in on other devices. To sign out from all
+            devices
+            <span style="cursor: pointer">CLICK HERE</span>
+          </div>
+
+          <hr />
+
+          <div class="menuBlock">
+            <div class="menuHeading">
+              <div class="menuIcon">
+                <img src="./images/description_24dp_666.svg" alt="" />
+              </div>
+
+              <span>ORDERS</span>
+            </div>
+
+            <a href="#">Orders</a>
+          </div>
+
+          <hr />
+
+          <div class="menuBlock">
+            <div class="menuHeading">
+              <div class="menuIcon">
+                <img src="./images/person_24dp_666.svg" alt="" />
+              </div>
+
+              <span>PROFILE</span>
+            </div>
+
+            <a href="#">Saved Addresses</a>
+            <a href="#" class="activeLink">Saved Cards</a>
+            <a href="#">Change Password</a>
+          </div>
+
+          <hr />
+
+          <div class="menuBlock">
+            <div class="menuHeading">
+              <div class="menuIcon">
+                <img
+                  src="./images/account_balance_wallet_24dp_666.svg"
+                  alt=""
+                />
+              </div>
+
+              <span>PAYMENTS</span>
+            </div>
+
+            <a href="#">E-Gift Voucher Balance</a>
+          </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="content">
+          <div class="section">
+            <h3>SAVED CARDS</h3>
+
+            <div class="borderLine"></div>
+
+            <div class="emptyText">You do not have any saved cards</div>
+          </div>
+
+          <div class="section">
+            <h3>SAVED VPAs</h3>
+
+            <div class="borderLine"></div>
+
+            <div class="emptyText">You have no saved VPAs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
