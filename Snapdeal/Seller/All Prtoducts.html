@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>allProducts Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #f4f6f9;
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+
+      .sidebar {
+        width: 260px;
+        background: #fff;
+        border-right: 1px solid #ddd;
+        transition: 0.3s;
+        overflow: hidden;
+      }
+
+      .sidebar.collapsed {
+        width: 80px;
+      }
+
+      .logo {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #eee;
+      }
+
+      .logo h2 {
+        color: #e40046;
+      }
+
+      .menu {
+        list-style: none;
+        padding: 20px 0;
+      }
+
+      .menu li {
+        margin: 8px 12px;
+      }
+
+      .menu li a {
+        text-decoration: none;
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 14px;
+        border-radius: 10px;
+      }
+
+      .menu li a:hover {
+        background: #f5f5f5;
+      }
+
+      .menu li.active a {
+        background: #e40046;
+        color: white;
+      }
+
+      .menu i {
+        width: 20px;
+      }
+
+      /* Main */
+
+      .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Navbar */
+
+      .navbar {
+        height: 70px;
+        background: white;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+      }
+
+      .left-nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      #toggleBtn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .search-box {
+        width: 350px;
+        height: 42px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        gap: 10px;
+      }
+
+      .search-box input {
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+
+      .right-nav {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .icon-box {
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .profile img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+      }
+
+      .profile h4 {
+        font-size: 14px;
+      }
+
+      .profile p {
+        font-size: 12px;
+        color: gray;
+      }
+
+      /* Content */
+
+      .content {
+        padding: 25px;
+      }
+
+      .page-title h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
+
+      .page-title p {
+        color: #666;
+      }
+
+      .placeholder {
+        margin-top: 25px;
+        background: white;
+        border-radius: 12px;
+        padding: 50px;
+        text-align: center;
+        border: 1px solid #eee;
+      }
+
+      /* Mobile */
+
+      @media (max-width: 768px) {
+        .sidebar {
+          position: fixed;
+          left: -260px;
+          top: 0;
+          height: 100%;
+          z-index: 100;
+        }
+
+        .sidebar.collapsed {
+          left: 0;
+          width: 260px;
+        }
+
+        .search-box {
+          width: 180px;
+        }
+
+        .profile div {
+          display: none;
+        }
+      }
+
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .add-product-btn {
+        border: none;
+        background: #e40046;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .products-toolbar {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .search-product {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .products-toolbar input,
+      .products-toolbar select {
+        height: 45px;
+        padding: 0 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+      }
+
+      .table-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #ececec;
+      }
+
+      .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .table-header a {
+        text-decoration: none;
+        color: #e40046;
+      }
+
+      thead th {
+        padding: 18px 20px;
+        text-align: left;
+      }
+
+      tbody td {
+        padding: 20px;
+        vertical-align: middle;
+      }
+
+      thead {
+        background: #f8f8f8;
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      tbody tr {
+        border-top: 1px solid #f0f0f0;
+      }
+
+      thead th {
+        padding-bottom: 25px;
+      }
+
+      tbody td {
+        padding-top: 25px;
+      }
+      .product-cell {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .product-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .product-info strong {
+        font-size: 16px;
+      }
+
+      .product-info p {
+        color: #777;
+        font-size: 13px;
+        margin-top: 4px;
+      }
+
+      .product-cell img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+
+      .product-cell p {
+        font-size: 12px;
+        color: #777;
+        margin-top: 4px;
+      }
+
+      .active-status {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #dcfce7;
+        color: #15803d;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .actions {
+        display: flex;
+        gap: 15px;
+      }
+
+      .out-stock {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #fee2e2;
+        color: #dc2626;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .action-btn {
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        background: #e40046;
+        color: white;
+      }
+
+      .edit {
+        background: #3b82f6;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      th:nth-child(1),
+      td:nth-child(1) {
+        width: 40%;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 15%;
+      }
+
+      th:nth-child(3),
+      td:nth-child(3) {
+        width: 10%;
+      }
+
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 10%;
+      }
+
+      th:nth-child(5),
+      td:nth-child(5) {
+        width: 10%;
+      }
+
+      th:nth-child(6),
+      td:nth-child(6) {
+        width: 15%;
+      }
+      .product-cell {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .product-cell img {
+        flex-shrink: 0;
+      }
+
+      th {
+        text-align: left;
+        font-weight: 600;
+      }
+
+      td {
+        text-align: left;
+        vertical-align: middle;
+      }
+      tbody tr {
+        border-bottom: 1px solid #f1f1f1;
+      }
+
+      tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .pagination {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        padding: 20px;
+      }
+
+      .pagination button {
+        border: 1px solid #ddd;
+        background: white;
+        height: 36px;
+        min-width: 36px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .pagination .active-page {
+        background: #e40046;
+        color: white;
+        border-color: #e40046;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          <h2>SellerHub</h2>
+        </div>
+
+        <ul class="menu">
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-chart-line"></i>
+              Dashboard
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-box"></i>
+              Orders
+            </a>
+          </li>
+
+          <li class="active">
+            <a href="#">
+              <i class="fa-solid fa-cube"></i>
+              Products
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-wallet"></i>
+              Payments
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-chart-column"></i>
+              Reports
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-gear"></i>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Section -->
+      <main class="main">
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="left-nav">
+            <button id="toggleBtn">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Search" />
+            </div>
+          </div>
+
+          <div class="right-nav">
+            <div class="icon-box">
+              <i class="fa-regular fa-bell"></i>
+            </div>
+
+            <div class="profile">
+              <img src="https://i.pravatar.cc/40" alt="" />
+              <div>
+                <h4>Rakesh</h4>
+                <p>Seller</p>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Content Area -->
+        <section class="content">
+          <div class="page-header">
+            <div>
+              <h1>Products</h1>
+              <p>Manage your product catalog.</p>
+            </div>
+
+            <button class="add-product-btn">+ Add Product</button>
+          </div>
+
+          <!-- Filters -->
+
+          <div class="products-toolbar">
+            <input
+              type="text"
+              placeholder="Search Product..."
+              class="search-product"
+            />
+
+            <select>
+              <option>All Categories</option>
+              <option>Electronics</option>
+              <option>Fashion</option>
+              <option>Home</option>
+            </select>
+
+            <select>
+              <option>All Status</option>
+              <option>Active</option>
+              <option>Out of Stock</option>
+            </select>
+          </div>
+
+          <!-- Products Table -->
+
+          <div class="table-card">
+            <div class="table-header">
+              <h3>All Products</h3>
+              <a href="#">Export Products</a>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="product-cell">
+                      <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200"
+                        alt=""
+                      />
+
+                      <div class="product-info">
+                        <strong>Nike Air Max</strong>
+                        <p>SKU: NK001</p>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>Shoes</td>
+                  <td>₹4,999</td>
+                  <td>126</td>
+
+                  <td>
+                    <span class="active-status"> Active </span>
+                  </td>
+
+                  <td>
+                    <div class="actions">
+                      <button class="action-btn">View</button>
+                      <button class="action-btn edit">Edit</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="product-cell">
+                      <img
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200"
+                        alt=""
+                      />
+
+                      <div class="product-info">
+                        <strong>Nike Air Max</strong>
+                        <p>SKU: NK001</p>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>Electronics</td>
+                  <td>₹2,499</td>
+                  <td>54</td>
+
+                  <td>
+                    <span class="active-status"> Active </span>
+                  </td>
+
+                  <td>
+                    <div class="actions">
+                      <button class="action-btn">View</button>
+                      <button class="action-btn edit">Edit</button>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="product-cell">
+                      <img
+                        src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200"
+                        alt=""
+                      />
+
+                      <div class="product-info">
+                        <strong>Nike Air Max</strong>
+                        <p>SKU: NK001</p>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>Bags</td>
+                  <td>₹1,299</td>
+                  <td>0</td>
+
+                  <td>
+                    <span class="out-stock"> Out of Stock </span>
+                  </td>
+
+                  <td>
+                    <div class="actions">
+                      <button class="action-btn">View</button>
+                      <button class="action-btn edit">Edit</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination">
+            <button>Previous</button>
+            <button class="active-page">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>Next</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

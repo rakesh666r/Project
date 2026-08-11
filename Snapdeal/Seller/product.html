@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #f4f6f9;
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+
+      .sidebar {
+        width: 260px;
+        background: #fff;
+        border-right: 1px solid #ddd;
+        transition: 0.3s;
+        overflow: hidden;
+      }
+
+      .sidebar.collapsed {
+        width: 80px;
+      }
+
+      .logo {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #eee;
+      }
+
+      .logo h2 {
+        color: #e40046;
+      }
+
+      .menu {
+        list-style: none;
+        padding: 20px 0;
+      }
+
+      .menu li {
+        margin: 8px 12px;
+      }
+
+      .menu li a {
+        text-decoration: none;
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 14px;
+        border-radius: 10px;
+      }
+
+      .menu li a:hover {
+        background: #f5f5f5;
+      }
+
+      .menu li.active a {
+        background: #e40046;
+        color: white;
+      }
+
+      .menu i {
+        width: 20px;
+      }
+
+      /* Main */
+
+      .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Navbar */
+
+      .navbar {
+        height: 70px;
+        background: white;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+      }
+
+      .left-nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      #toggleBtn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .search-box {
+        width: 350px;
+        height: 42px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        gap: 10px;
+      }
+
+      .search-box input {
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+
+      .right-nav {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .icon-box {
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .profile img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+      }
+
+      .profile h4 {
+        font-size: 14px;
+      }
+
+      .profile p {
+        font-size: 12px;
+        color: gray;
+      }
+
+      /* Content */
+
+      .content {
+        padding: 25px;
+      }
+
+      .page-title h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
+
+      .page-title p {
+        color: #666;
+      }
+
+      .page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-header p{
+    color:#666;
+    margin-top:4px;
+}
+
+      .placeholder {
+        margin-top: 25px;
+        background: white;
+        border-radius: 12px;
+        padding: 50px;
+        text-align: center;
+        border: 1px solid #eee;
+      }
+
+      /* Mobile */
+
+      @media (max-width: 768px) {
+        .sidebar {
+          position: fixed;
+          left: -260px;
+          top: 0;
+          height: 100%;
+          z-index: 100;
+        }
+
+        .sidebar.collapsed {
+          left: 0;
+          width: 260px;
+        }
+
+        .search-box {
+          width: 180px;
+        }
+
+        .profile div {
+          display: none;
+        }
+      }
+
+      .product-form{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.form-card{
+    background:white;
+    border:1px solid #ececec;
+    border-radius:12px;
+    padding:25px;
+}
+
+.form-card h3{
+    margin-bottom:20px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:12px;
+    outline:none;
+    font-size:14px;
+}
+
+.form-group textarea{
+    resize:none;
+    margin-top:8px;
+}
+
+.upload-box{
+    border:2px dashed #ddd;
+    border-radius:12px;
+    padding:50px;
+    text-align:center;
+}
+
+.upload-icon{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.upload-box p{
+    color:#666;
+    margin:10px 0 20px;
+}
+
+.browse-btn{
+    border:none;
+    background:#e40046;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.publish-btn{
+    border:none;
+    background:#e40046;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.draft-btn{
+    border:1px solid #ccc;
+    background:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.form-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+}
+
+@media(max-width:768px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-actions{
+        flex-direction:column;
+    }
+
+    .publish-btn,
+    .draft-btn{
+        width:100%;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          <h2>SellerHub</h2>
+        </div>
+
+        <ul class="menu">
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-chart-line"></i>
+              Dashboard
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-box"></i>
+              Orders
+            </a>
+          </li>
+
+          <li class="active">
+            <a href="#">
+              <i class="fa-solid fa-cube"></i>
+              Products
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-wallet"></i>
+              Payments
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-chart-column"></i>
+              Reports
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-gear"></i>
+              Settings
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Section -->
+      <main class="main">
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="left-nav">
+            <button id="toggleBtn">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Search" />
+            </div>
+          </div>
+
+          <div class="right-nav">
+            <div class="icon-box">
+              <i class="fa-regular fa-bell"></i>
+            </div>
+
+            <div class="profile">
+              <img src="https://i.pravatar.cc/40" alt="" />
+              <div>
+                <h4>Rakesh</h4>
+                <p>Seller</p>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Content Area -->
+        <section class="content">
+          <div class="page-header">
+            <div>
+              <h1>Add Product</h1>
+              <p>Create and publish a new product listing.</p>
+            </div>
+
+            <button class="publish-btn">Publish Product</button>
+          </div>
+
+          <form class="product-form">
+            <!-- Product Information -->
+
+            <div class="form-card">
+              <h3>Product Information</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Product Name</label>
+                  <input type="text" placeholder="Enter product name" />
+                </div>
+
+                <div class="form-group">
+                  <label>Brand</label>
+                  <input type="text" placeholder="Brand name" />
+                </div>
+
+                <div class="form-group">
+                  <label>Category</label>
+                  <select>
+                    <option>Select Category</option>
+                    <option>Electronics</option>
+                    <option>Fashion</option>
+                    <option>Home & Kitchen</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>SKU</label>
+                  <input type="text" placeholder="Product SKU" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Description</label>
+                <textarea
+                  rows="6"
+                  placeholder="Enter product description"
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Pricing -->
+
+            <div class="form-card">
+              <h3>Pricing</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Selling Price</label>
+                  <input type="number" placeholder="₹" />
+                </div>
+
+                <div class="form-group">
+                  <label>MRP</label>
+                  <input type="number" placeholder="₹" />
+                </div>
+
+                <div class="form-group">
+                  <label>Discount (%)</label>
+                  <input type="number" placeholder="%" />
+                </div>
+
+                <div class="form-group">
+                  <label>Tax (%)</label>
+                  <input type="number" placeholder="%" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Inventory -->
+
+            <div class="form-card">
+              <h3>Inventory</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Stock Quantity</label>
+                  <input type="number" />
+                </div>
+
+                <div class="form-group">
+                  <label>Minimum Stock Alert</label>
+                  <input type="number" />
+                </div>
+
+                <div class="form-group">
+                  <label>Weight (Kg)</label>
+                  <input type="text" />
+                </div>
+
+                <div class="form-group">
+                  <label>Dimensions</label>
+                  <input type="text" placeholder="L x W x H" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Images -->
+
+            <div class="form-card">
+              <h3>Product Images</h3>
+
+              <div class="upload-box">
+                <div class="upload-icon">📷</div>
+
+                <h4>Upload Product Images</h4>
+
+                <p>Drag & Drop Images Here</p>
+
+                <button type="button" class="browse-btn">Browse Files</button>
+              </div>
+            </div>
+
+            <!-- Product Attributes -->
+
+            <div class="form-card">
+              <h3>Attributes</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Color</label>
+                  <input type="text" />
+                </div>
+
+                <div class="form-group">
+                  <label>Size</label>
+                  <input type="text" />
+                </div>
+
+                <div class="form-group">
+                  <label>Material</label>
+                  <input type="text" />
+                </div>
+
+                <div class="form-group">
+                  <label>Warranty</label>
+                  <input type="text" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Actions -->
+
+            <div class="form-actions">
+              <button type="button" class="draft-btn">Save Draft</button>
+
+              <button type="submit" class="publish-btn">Publish Product</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
