@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #f4f6f9;
+      }
+
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+
+      .sidebar {
+        width: 260px;
+        background: #fff;
+        border-right: 1px solid #ddd;
+        transition: 0.3s;
+        overflow: hidden;
+      }
+
+      .sidebar.collapsed {
+        width: 80px;
+      }
+
+      .logo {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #eee;
+      }
+
+      .logo h2 {
+        color: #e40046;
+      }
+
+      .menu {
+        list-style: none;
+        padding: 20px 0;
+      }
+
+      .menu li {
+        margin: 8px 12px;
+      }
+
+      .menu li a {
+        text-decoration: none;
+        color: #444;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 14px;
+        border-radius: 10px;
+      }
+
+      .menu li a:hover {
+        background: #f5f5f5;
+      }
+
+      .menu li.active a {
+        background: #e40046;
+        color: white;
+      }
+
+      .menu i {
+        width: 20px;
+      }
+
+      /* Main */
+
+      .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Navbar */
+
+      .navbar {
+        height: 70px;
+        background: white;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+      }
+
+      .left-nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      #toggleBtn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .search-box {
+        width: 350px;
+        height: 42px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        gap: 10px;
+      }
+
+      .search-box input {
+        border: none;
+        outline: none;
+        width: 100%;
+      }
+
+      .right-nav {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+
+      .icon-box {
+        font-size: 22px;
+        cursor: pointer;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .profile img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+      }
+
+      .profile h4 {
+        font-size: 14px;
+      }
+
+      .profile p {
+        font-size: 12px;
+        color: gray;
+      }
+
+      /* Content */
+
+      .content {
+        padding: 25px;
+      }
+
+      .page-title h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+      }
+
+      .page-title p {
+        color: #666;
+      }
+
+      .placeholder {
+        margin-top: 25px;
+        background: white;
+        border-radius: 12px;
+        padding: 50px;
+        text-align: center;
+        border: 1px solid #eee;
+      }
+
+      /* Mobile */
+
+      @media (max-width: 768px) {
+        .sidebar {
+          position: fixed;
+          left: -260px;
+          top: 0;
+          height: 100%;
+          z-index: 100;
+        }
+
+        .sidebar.collapsed {
+          left: 0;
+          width: 260px;
+        }
+
+        .search-box {
+          width: 180px;
+        }
+
+        .profile div {
+          display: none;
+        }
+      }
+
+      .profile-grid {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .profile-card,
+      .details-card,
+      .info-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        border: 1px solid #ececec;
+        margin-bottom: 20px;
+      }
+
+      .profile-top {
+        text-align: center;
+      }
+
+      .profile-top img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+
+      .profile-top p {
+        color: #777;
+        margin: 8px 0 15px;
+      }
+
+      .profile-top button {
+        border: none;
+        background: #e40046;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .form-group input {
+        height: 45px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 0 15px;
+        outline: none;
+      }
+
+      .info-card h3,
+      .details-card h3 {
+        margin-bottom: 10px;
+      }
+
+      .save-section {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+
+      .save-btn {
+        border: none;
+        background: #e40046;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      @media (max-width: 900px) {
+        .profile-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          <h2>SellerHub</h2>
+        </div>
+
+        <ul class="menu">
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-chart-line"></i>
+              Dashboard
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-box"></i>
+              Orders
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-cube"></i>
+              Products
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-wallet"></i>
+              Payments
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-chart-column"></i>
+              Reports
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-gear"></i>
+              Settings
+            </a>
+          </li>
+
+          <li class="active">
+            <a href="#">
+              <i class="fa-regular fa-user"></i>
+              Profile
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Section -->
+      <main class="main">
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="left-nav">
+            <button id="toggleBtn">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Search" />
+            </div>
+          </div>
+
+          <div class="right-nav">
+            <div class="icon-box">
+              <i class="fa-regular fa-bell"></i>
+            </div>
+
+            <div class="profile">
+              <img src="https://i.pravatar.cc/40" alt="" />
+              <div>
+                <h4>Rakesh</h4>
+                <p>Seller</p>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Content Area -->
+        <section class="content">
+          <div class="page-header">
+            <div>
+              <h1>Profile</h1>
+              <p>Manage your account information.</p>
+            </div>
+          </div>
+
+          <div class="profile-grid">
+            <!-- Left -->
+
+            <div class="profile-card">
+              <div class="profile-top">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43?w=300"
+                  alt=""
+                />
+
+                <h2>Rakesh Yadav</h2>
+
+                <p>Seller Account</p>
+
+                <button>Edit Profile Photo</button>
+              </div>
+            </div>
+
+            <!-- Right -->
+
+            <div class="details-card">
+              <h3>Personal Information</h3>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" value="Rakesh Yadav" />
+                </div>
+
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" value="rakesh@gmail.com" />
+                </div>
+
+                <div class="form-group">
+                  <label>Mobile Number</label>
+                  <input type="text" value="+91 9876543210" />
+                </div>
+
+                <div class="form-group">
+                  <label>City</label>
+                  <input type="text" value="Mumbai" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Store Information -->
+
+          <div class="info-card">
+            <h3>Store Information</h3>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Store Name</label>
+                <input type="text" value="Rakesh Store" />
+              </div>
+
+              <div class="form-group">
+                <label>Store Category</label>
+                <input type="text" value="Fashion" />
+              </div>
+
+              <div class="form-group">
+                <label>GST Number</label>
+                <input type="text" value="22ABCDE1234F1Z5" />
+              </div>
+
+              <div class="form-group">
+                <label>PAN Number</label>
+                <input type="text" value="ABCDE1234F" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Bank Information -->
+
+          <div class="info-card">
+            <h3>Bank Information</h3>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Bank Name</label>
+                <input type="text" value="State Bank of India" />
+              </div>
+
+              <div class="form-group">
+                <label>Account Number</label>
+                <input type="text" value="XXXXXX4567" />
+              </div>
+
+              <div class="form-group">
+                <label>IFSC Code</label>
+                <input type="text" value="SBIN0001234" />
+              </div>
+
+              <div class="form-group">
+                <label>Account Type</label>
+                <input type="text" value="Current Account" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Security -->
+
+          <div class="info-card">
+            <h3>Change Password</h3>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Current Password</label>
+                <input type="password" />
+              </div>
+
+              <div class="form-group">
+                <label>New Password</label>
+                <input type="password" />
+              </div>
+
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" />
+              </div>
+            </div>
+          </div>
+
+          <div class="save-section">
+            <button class="save-btn">Save Changes</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
