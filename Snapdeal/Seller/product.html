@@ -47,10 +47,6 @@
         border-bottom: 1px solid #eee;
       }
 
-      .logo h2 {
-        color: #e40046;
-      }
-
       .menu {
         list-style: none;
         padding: 20px 0;
@@ -180,17 +176,17 @@
         color: #666;
       }
 
-      .page-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-}
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
 
-.page-header p{
-    color:#666;
-    margin-top:4px;
-}
+      .page-header p {
+        color: #666;
+        margin-top: 4px;
+      }
 
       .placeholder {
         margin-top: 25px;
@@ -226,120 +222,119 @@
         }
       }
 
-      .product-form{
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-}
+      .product-form {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
 
-.form-card{
-    background:white;
-    border:1px solid #ececec;
-    border-radius:12px;
-    padding:25px;
-}
+      .form-card {
+        background: white;
+        border: 1px solid #ececec;
+        border-radius: 12px;
+        padding: 25px;
+      }
 
-.form-card h3{
-    margin-bottom:20px;
-}
+      .form-card h3 {
+        margin-bottom: 20px;
+      }
 
-.form-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
 
-.form-group{
-    display:flex;
-    flex-direction:column;
-}
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
 
-.form-group label{
-    margin-bottom:8px;
-    font-size:14px;
-    font-weight:500;
-}
+      .form-group label {
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 500;
+      }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
-    border:1px solid #ddd;
-    border-radius:8px;
-    padding:12px;
-    outline:none;
-    font-size:14px;
-}
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        outline: none;
+        font-size: 14px;
+      }
 
-.form-group textarea{
-    resize:none;
-    margin-top:8px;
-}
+      .form-group textarea {
+        resize: none;
+        margin-top: 8px;
+      }
 
-.upload-box{
-    border:2px dashed #ddd;
-    border-radius:12px;
-    padding:50px;
-    text-align:center;
-}
+      .upload-box {
+        border: 2px dashed #ddd;
+        border-radius: 12px;
+        padding: 50px;
+        text-align: center;
+      }
 
-.upload-icon{
-    font-size:40px;
-    margin-bottom:15px;
-}
+      .upload-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
 
-.upload-box p{
-    color:#666;
-    margin:10px 0 20px;
-}
+      .upload-box p {
+        color: #666;
+        margin: 10px 0 20px;
+      }
 
-.browse-btn{
-    border:none;
-    background:#e40046;
-    color:white;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-}
+      .browse-btn {
+        border: none;
+        background: #e40046;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
 
-.publish-btn{
-    border:none;
-    background:#e40046;
-    color:white;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:600;
-}
+      .publish-btn {
+        border: none;
+        background: #e40046;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
 
-.draft-btn{
-    border:1px solid #ccc;
-    background:white;
-    padding:12px 20px;
-    border-radius:8px;
-    cursor:pointer;
-}
+      .draft-btn {
+        border: 1px solid #ccc;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
 
-.form-actions{
-    display:flex;
-    justify-content:flex-end;
-    gap:15px;
-}
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 15px;
+      }
 
-@media(max-width:768px){
+      @media (max-width: 768px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
+        .form-actions {
+          flex-direction: column;
+        }
 
-    .form-actions{
-        flex-direction:column;
-    }
-
-    .publish-btn,
-    .draft-btn{
-        width:100%;
-    }
-}
+        .publish-btn,
+        .draft-btn {
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -347,7 +342,11 @@
       <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
         <div class="logo">
-          <h2>SellerHub</h2>
+          <img
+            src="./images/sdLogo.webp"
+            alt=""
+            style="height: 42px; width: 200px"
+          />
         </div>
 
         <ul class="menu">

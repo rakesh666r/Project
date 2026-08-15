@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: #f5f6fa;
+      }
+
+      .sidebar {
+        width: 260px;
+        height: 100vh;
+        background: #111827;
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo {
+        height: 80px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .nav-link {
+        display: flex;
+        gap: 12px;
+        padding: 15px 25px;
+        color: #cbd5e1;
+        text-decoration: none;
+      }
+
+      .nav-link:hover {
+        background: #1f2937;
+      }
+
+      .active {
+        background: #2563eb;
+        color: white;
+      }
+
+      .logout-section {
+        margin-top: auto;
+        padding: 20px;
+      }
+
+      .logout-btn {
+        display: block;
+        text-align: center;
+        padding: 12px;
+        background: #dc2626;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .navbar {
+        position: fixed;
+        left: 260px;
+        right: 0;
+        top: 0;
+        height: 80px;
+        background: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .search-box input {
+        width: 350px;
+        height: 45px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 0 15px;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .icon-btn {
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .admin-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .admin-profile img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+      }
+
+      .content {
+        margin-left: 260px;
+        margin-top: 80px;
+        padding: 25px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .stat-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+      }
+
+      .chart-card {
+        margin-top: 20px;
+        background: white;
+        height: 300px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .dashboard-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .table-card,
+      .seller-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .table-header {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 15px 20px;
+        text-align: left;
+      }
+
+      thead {
+        background: #fafafa;
+      }
+
+      .seller-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 18px 20px;
+        border-bottom: 1px solid #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+      <div class="logo">AdminHub</div>
+
+      <nav>
+        <a href="#" class="nav-link active">
+          <span>📊</span>
+          Dashboard
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>📦</span>
+          Orders
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>🛍</span>
+          Products
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>🏪</span>
+          Sellers
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>👥</span>
+          Customers
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>💳</span>
+          Payments
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>📈</span>
+          Reports
+        </a>
+
+        <a href="#" class="nav-link">
+          <span>⚙️</span>
+          Settings
+        </a>
+      </nav>
+
+      <div class="logout-section">
+        <a href="#" class="logout-btn"> 🚪 Logout </a>
+      </div>
+    </aside>
+
+    <!-- Navbar -->
+
+    <header class="navbar">
+      <div class="nav-left">
+        <button class="menu-btn">☰</button>
+
+        <div class="search-box">
+          <input type="text" placeholder="Search..." />
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <button class="icon-btn">🔔</button>
+
+        <button class="icon-btn">✉️</button>
+
+        <button class="icon-btn">⚙️</button>
+
+        <div class="admin-profile">
+          <img src="https://i.pravatar.cc/100?img=12" alt="" />
+
+          <div>
+            <strong>Rakesh</strong>
+            <p>Super Admin</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+
+    <main class="content">
+      <div class="page-header">
+        <h1>Dashboard</h1>
+
+        <p>Welcome back, Admin.</p>
+      </div>
+
+      <!-- Stats -->
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h4>Total Revenue</h4>
+          <h2>₹12.4 Cr</h2>
+        </div>
+
+        <div class="stat-card">
+          <h4>Total Orders</h4>
+          <h2>12,845</h2>
+        </div>
+
+        <div class="stat-card">
+          <h4>Total Sellers</h4>
+          <h2>2,341</h2>
+        </div>
+
+        <div class="stat-card">
+          <h4>Total Customers</h4>
+          <h2>58,230</h2>
+        </div>
+      </div>
+
+      <!-- Chart -->
+
+      <div class="chart-card">Revenue Analytics Chart</div>
+
+      <!-- Bottom Section -->
+
+      <div class="dashboard-row">
+        <div class="table-card">
+          <div class="table-header">
+            <h3>Recent Orders</h3>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>#ORD1001</td>
+                <td>Rahul Sharma</td>
+                <td>₹4,999</td>
+                <td>Delivered</td>
+              </tr>
+
+              <tr>
+                <td>#ORD1002</td>
+                <td>Amit Kumar</td>
+                <td>₹2,499</td>
+                <td>Processing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="seller-card">
+          <h3>Top Sellers</h3>
+
+          <div class="seller-item">
+            <span>Tech Store</span>
+            <strong>₹14.2L</strong>
+          </div>
+
+          <div class="seller-item">
+            <span>Fashion Hub</span>
+            <strong>₹11.8L</strong>
+          </div>
+
+          <div class="seller-item">
+            <span>Mobile World</span>
+            <strong>₹9.6L</strong>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
